@@ -17,51 +17,41 @@
 		    	<span style="font-size:30px;cursor:pointer; color: #777" onclick="openNav()">&#9776;</span>
 		    	<div id="mySidenav" class="sidenav">
 				  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				  <a href="#" id="addUser">Cadastro de Usuários</a>
-				  <a href="#">Consulta Contas</a>
-				  <a href="Login.html">Sair</a>
-				  <a href="#">Contato</a>
+				  <a href="Home.html">HOME</a>
+				  <a href="#">CONTAS A PAGAR</a>
+				  <a href="#" id="posts">POSTAGENS</a>
+				  <a href="#" id="users">MORADORES</a>
+				  <a href="#">CONTATO</a>
+				  <a href="Login.html">SAIR</a>
+				  <br>
+				  <hr id="linhamenu">
 				  <li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acesso Síndico<span class="caret"></span></a>
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACESSO SÍNDICO<span class="caret"></span></a>
 			          <ul class="dropdown-menu">
-			            <li><a href="#" id="newOrder">Cadastra Conta</a></li>
-			            <li><a href="#" id="postMsg">Cadastrar Postagem</a></li>
+			        	<li>
+			            	<a href="#" id="addUser">
+			            		<div class="InDropMenu"> > Cadastrar Usuarios</div>
+			            	</a>
+			            </li>
+			            <li>
+			            	<a href="#" id="newOrder">
+			            		<div class="InDropMenu"> > Cadastrar Contas</div>
+			            	</a>
+			            </li>
+			            <li>
+			            	<a href="#" id="postMsg">
+			            		<div class="InDropMenu"> > Cadastrar Postagem</div>
+			            	</a>
+			            </li>
 			          </ul>
-			        </li>
+			      </li>
 				</div>
 			   <a class="navbar-brand" href="Home.html">DIDDE</a>
 			</div>
 		     
-		    </div>
-
+		  </div>
 		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-
-		     <!-- <ul class="nav navbar-nav">
-		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contas a pagar <span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		          	<li><a href="#">Visualizar Contas</a></li>
-		            <li><a href="CadastrarContaPagar.html">Cadastrar Novas</a></li>
-		          </ul>
-		        </li>
-		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Postagens <span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="postagens.html">Vizualizar postagens</a></li>
-		            <li><a href="CadastrarPostagens.html">Cadastrar nova</a></li>
-		          </ul>
-		        </li>
-		        <li class="nav-item">
-		        	<a class="nav-link" href="Usuarios.html">Usuarios</a>
-		        </li>
-		      </ul> -->
-		      
-		    </div><!-- /.navbar-collapse -->
-		  <!-- </div>/.container-fluid -->
-
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
 		</nav>
 
 		<div class="container-fluid">
@@ -144,7 +134,15 @@
 					closeNav();
 				});
 
+				$("#posts").click(function(){
+					$("#fullbody").load("Postagens-min.html");
+					closeNav();
+				});
 
+				$("#users").click(function(){
+					$("#fullbody").load("Usuarios-min.html");
+					closeNav();
+				});
 			}
 
 

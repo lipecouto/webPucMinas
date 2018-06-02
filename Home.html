@@ -20,7 +20,7 @@
 				  <a href="Home.html">HOME</a>
 				  <a href="#">CONTAS A PAGAR</a>
 				  <a href="#" id="posts">POSTAGENS</a>
-				  <a href="#">MORADORES</a>
+				  <a href="#" id="users">MORADORES</a>
 				  <a href="#">CONTATO</a>
 				  <a href="Login.html">SAIR</a>
 				  <br>
@@ -121,6 +121,11 @@
 
 				$("#posts").click(function(){
 					$("#fullbody").load("Postagens-min.html");
+					closeNav();
+				});
+
+				$("#users").click(function(){
+					$("#fullbody").load("Usuarios-min.html");
 					closeNav();
 				});
 			}
