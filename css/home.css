@@ -82,3 +82,28 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+#linhamenu {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 1px solid #969292;
+    width: 200px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 250px;
+    list-style: none;
+    background-color: #111;
+}
+
+.InDropMenu{
+    color:#818181;
+    margin-left: 14px;
+}

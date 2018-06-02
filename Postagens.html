@@ -13,19 +13,33 @@
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="Home.html">DIDDE</a>
+		    <div id="main">
+		    	<span style="font-size:30px;cursor:pointer; color: #777" onclick="openNav()">&#9776;</span>
+		    	<div id="mySidenav" class="sidenav">
+				  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				  <a href="#" id="addUser">Cadastro de Usuários</a>
+				  <a href="#">Consulta Contas</a>
+				  <a href="Login.html">Sair</a>
+				  <a href="#">Contato</a>
+				  <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acesso Síndico<span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="#" id="newOrder">Cadastra Conta</a></li>
+			            <li><a href="#" id="postMsg">Cadastrar Postagem</a></li>
+			          </ul>
+			        </li>
+				</div>
+			   <a class="navbar-brand" href="Home.html">DIDDE</a>
+			</div>
+		     
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
-<!-- 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+
+		     <!-- <ul class="nav navbar-nav">
 		        <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contas a pagar <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
@@ -43,18 +57,11 @@
 		        <li class="nav-item">
 		        	<a class="nav-link" href="Usuarios.html">Usuarios</a>
 		        </li>
-		      </ul>
-		      <ul class="nav navbar-nav navbar-right">
-		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ações <span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="#">Ajuda</a></li>
-		            <li><a href="Login.html">Sair</a></li>
-		          </ul>
-		        </li>
 		      </ul> -->
-		    <!--</div> /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
+		      
+		    </div><!-- /.navbar-collapse -->
+		  <!-- </div>/.container-fluid -->
+
 		</nav>
 
 		<div class="container-fluid">
@@ -112,5 +119,43 @@
 				</center>
 			</footer>
 		</div>
+
+		<script>
+			
+			function openNav() {
+			    document.getElementById("mySidenav").style.width = "250px";
+			    document.getElementById("main").style.marginLeft = "250px";
+			    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+			    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0.4)";
+			    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0.4)";
+
+			    $("#addUser").click(function(){
+					$("#fullbody").load("CadastroUsuario-min.html");
+					closeNav();
+				});
+
+				$("#newOrder").click(function(){
+					$("#fullbody").load("CadastrarContaPagar-min.html");
+					closeNav();
+				});
+
+				$("#postMsg").click(function(){
+					$("#fullbody").load("CadastrarPostagens-min.html");
+					closeNav();
+				});
+
+
+			}
+
+
+			function closeNav() {
+			    document.getElementById("mySidenav").style.width = "0";
+			    document.getElementById("main").style.marginLeft= "0";
+			    document.body.style.backgroundColor = "white";
+			    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
+			    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
+			}
+
+		</script>
 	</body>
 </html>
