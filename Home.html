@@ -22,6 +22,7 @@
 				  <a href="#" id="posts">POSTAGENS</a>
 				  <a href="#" id="users">MORADORES</a>
 				  <a href="#">CONTATO</a>
+				  <a href="#" id="aboutus">SOBRE NOS</a>
 				  <a href="Login.html">SAIR</a>
 				  <br>
 				  <hr id="linhamenu">
@@ -126,6 +127,11 @@
 
 				$("#users").click(function(){
 					$("#fullbody").load("Usuarios-min.html");
+					closeNav();
+				});
+				//aboutus
+				$("#aboutus").click(function(){
+					$("#fullbody").load("Sobre.html");
 					closeNav();
 				});
 			}

@@ -12,30 +12,47 @@
 	<body>
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div id="main">
 		    	<span style="font-size:30px;cursor:pointer; color: #777" onclick="openNav()">&#9776;</span>
 		    	<div id="mySidenav" class="sidenav">
 				  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				  <a href="#">Cadastro de Usuários</a>
-				  <a href="#">Consulta Contas</a>
-				  <a href="#">Acesso Síndico</a>
-				  <a href="#">Contact</a>
+				  <a href="Home.html">HOME</a>
+				  <a href="#">CONTAS A PAGAR</a>
+				  <a href="#" id="posts">POSTAGENS</a>
+				  <a href="#" id="users">MORADORES</a>
+				  <a href="#">CONTATO</a>
+				  <a href="#" id="aboutus">SOBRE NOS</a>
+				  <a href="Login.html">SAIR</a>
+				  <br>
+				  <hr id="linhamenu">
 				  <li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Outras Opcões <span class="caret"></span></a>
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACESSO SÍNDICO<span class="caret"></span></a>
 			          <ul class="dropdown-menu">
-			            <li><a href="#">Ajuda</a></li>
-			            <li><a href="Login.html">Sair</a></li>
+			        	<li>
+			            	<a href="#" id="addUser">
+			            		<div class="InDropMenu"> > Cadastrar Usuarios</div>
+			            	</a>
+			            </li>
+			            <li>
+			            	<a href="#" id="newOrder">
+			            		<div class="InDropMenu"> > Cadastrar Contas</div>
+			            	</a>
+			            </li>
+			            <li>
+			            	<a href="#" id="postMsg">
+			            		<div class="InDropMenu"> > Cadastrar Postagem</div>
+			            	</a>
+			            </li>
 			          </ul>
-			        </li>
+			      </li>
 				</div>
 			   <a class="navbar-brand" href="Home.html">DIDDE</a>
 			</div>
-		  </div><!-- /.container-fluid -->
+		     
+		  </div>
 		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <!-- conteudo removido -->
-		    </div><!-- /.navbar-collapse -->
-		 
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
 		</nav>
 
 		<div class="container-fluid">
@@ -74,28 +91,54 @@
 		</div>
 
 		<script>
+			
 			function openNav() {
 			    document.getElementById("mySidenav").style.width = "250px";
 			    document.getElementById("main").style.marginLeft = "250px";
 			    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-			    //document.getElementById("formdiv").style.backgroundColor = "rgba(0,0,0,0.4)";
-			    document.getElementById("exampleInputEmail1").disabled = true;
-			    document.getElementById("exampleInputEmail1").style.backgroundColor = "rgba(0,0,0,0.0)";
-			    document.getElementById("exampleInputEmail1").style.border = "rgba(0,0,0,0)";
+			    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0.4)";
+			    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0.4)";
 
-			     
+			    $("#addUser").click(function(){
+					$("#fullbody").load("CadastroUsuario-min.html");
+					closeNav();
+				});
+
+				$("#newOrder").click(function(){
+					$("#fullbody").load("CadastrarContaPagar-min.html");
+					closeNav();
+				});
+
+				$("#postMsg").click(function(){
+					$("#fullbody").load("CadastrarPostagens-min.html");
+					closeNav();
+				});
+
+				$("#posts").click(function(){
+					$("#fullbody").load("Postagens-min.html");
+					closeNav();
+				});
+
+				$("#users").click(function(){
+					$("#fullbody").load("Usuarios-min.html");
+					closeNav();
+				});
+				//aboutus
+				$("#aboutus").click(function(){
+					$("#fullbody").load("Sobre.html");
+					closeNav();
+				});
 			}
+
 
 			function closeNav() {
 			    document.getElementById("mySidenav").style.width = "0";
 			    document.getElementById("main").style.marginLeft= "0";
 			    document.body.style.backgroundColor = "white";
-			    //document.getElementById("formdiv").style.backgroundColor = "rgba(0,0,0,0)";
-			    //document.getElementById("exampleInputEmail1").disabled = false;
-			    //document.getElementById("exampleInputEmail1").style.backgroundColor = "white";
-			    //document.getElementById("exampleInputEmail1").style.border = "rgba(204,204,204,1);";
-			     
+			    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
+			    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
 			}
+
 		</script>
 
 	</body>

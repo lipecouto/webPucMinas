@@ -104,28 +104,54 @@
 		</div>
 		<br><br><br><br>
 		<script>
+			
 			function openNav() {
 			    document.getElementById("mySidenav").style.width = "250px";
 			    document.getElementById("main").style.marginLeft = "250px";
 			    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-			    //document.getElementById("formdiv").style.backgroundColor = "rgba(0,0,0,0.4)";
-			    document.getElementById("exampleInputEmail1").disabled = true;
-			    document.getElementById("exampleInputEmail1").style.backgroundColor = "rgba(0,0,0,0.0)";
-			    document.getElementById("exampleInputEmail1").style.border = "rgba(0,0,0,0)";
+			    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0.4)";
+			    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0.4)";
 
-			     
+			    $("#addUser").click(function(){
+					$("#fullbody").load("CadastroUsuario-min.html");
+					closeNav();
+				});
+
+				$("#newOrder").click(function(){
+					$("#fullbody").load("CadastrarContaPagar-min.html");
+					closeNav();
+				});
+
+				$("#postMsg").click(function(){
+					$("#fullbody").load("CadastrarPostagens-min.html");
+					closeNav();
+				});
+
+				$("#posts").click(function(){
+					$("#fullbody").load("Postagens-min.html");
+					closeNav();
+				});
+
+				$("#users").click(function(){
+					$("#fullbody").load("Usuarios-min.html");
+					closeNav();
+				});
+				//aboutus
+				$("#aboutus").click(function(){
+					$("#fullbody").load("Sobre.html");
+					closeNav();
+				});
 			}
+
 
 			function closeNav() {
 			    document.getElementById("mySidenav").style.width = "0";
 			    document.getElementById("main").style.marginLeft= "0";
 			    document.body.style.backgroundColor = "white";
-			    //document.getElementById("formdiv").style.backgroundColor = "rgba(0,0,0,0)";
-			    //document.getElementById("exampleInputEmail1").disabled = false;
-			    //document.getElementById("exampleInputEmail1").style.backgroundColor = "white";
-			    //document.getElementById("exampleInputEmail1").style.border = "rgba(204,204,204,1);";
-			     
+			    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
+			    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
 			}
+
 		</script>
 	</body>
 </html>
