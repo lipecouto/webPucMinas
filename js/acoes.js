@@ -2,6 +2,8 @@
 
 $(document).ready(function(){
     
+    alert("Teste A com sucesso");
+
     //Enviar Dados
     $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
 
