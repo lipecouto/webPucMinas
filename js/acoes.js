@@ -3,9 +3,12 @@
 $(document).ready(function(){
     
     alert("Teste A com sucesso");
-
+    
+    $("CadastroUsuario-min.html").ready(function(){
+        passAtivo;
+    });
     //Enviar Dados
-    $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
+    $("btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
 
         var nomeUsu  = $("#fullname").val();
         var cpfUsu   = $("#personid").val();
@@ -17,7 +20,7 @@ $(document).ready(function(){
 
          alert("Inserido com sucesso");
 
-         passAtivo;
+         
     
     });
 });
