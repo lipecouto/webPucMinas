@@ -35,11 +35,11 @@ function validatePassword(Pass, Validade){
 }
 
 //Enviar dados por requisição assincrona
-/*function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser){
+function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser){
         $.ajax({
             method: "GET",
             //url: "service.php?acao=inserir",
-            url: "http://apicondominio.azurewebsites.net/api/usuario"
+            url: "http://apicondominio.azurewebsites.net/api/usuario",
             data: {nome: nomeUsuer, cpf: cpfUser, login: loginUser, pass: passUser, email: emailUser, tel: telefoneUser} 
         })
         .done(function(msg){
@@ -49,4 +49,4 @@ function validatePassword(Pass, Validade){
                 alert("Erro ao processar sua solicitação");
             }
         });
-} */ 
+} 
