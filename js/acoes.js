@@ -5,6 +5,7 @@ $(document).ready(function(){
     alert("Teste A com sucesso");
     
     $("CadastroUsuario-min.html").ready(function(){
+        alert("Teste B com sucesso");
         passAtivo;
     });
     //Enviar Dados
