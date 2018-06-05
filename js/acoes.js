@@ -3,9 +3,6 @@
 $(document).ready(function(){
     
     //Enviar Dados
-
-
-
     $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
 
         var nomeUsu  = $("#fullname").val();
@@ -17,6 +14,8 @@ $(document).ready(function(){
         var telefone = $("#userTel").val();
 
          alert("Inserido com sucesso");
+
+         passAtivo;
     
     });
 });
@@ -37,3 +36,18 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
             }
         });
 } 
+
+function passAtivo(){
+
+     var passValidate =  document.getElementById("userPass2");
+     var password     = document.getElementById("userPass");
+
+     password.onchange = validatePassword(password.value, validate.value);
+     passValidate.onkeyup = validatePassword(password.value, validate.value);
+
+
+    if(password.value != passValidate.value{
+       document.getElementById("alerta").style.display = "true"; 
+    }
+
+}
