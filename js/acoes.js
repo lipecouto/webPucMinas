@@ -46,7 +46,7 @@ function passAtivo(){
      passValidate.onkeyup = validatePassword(password.value, validate.value);
 
 
-    if(password.value != passValidate.value{
+    if(password.value != passValidate.value){
        document.getElementById("alerta").style.display = "true"; 
     }
 
