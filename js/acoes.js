@@ -2,12 +2,12 @@
 
 $(document).ready(function(){
     
-  function openNav() {
-                document.getElementById("mySidenav").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-                document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0.4)";
-                document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0.4)";
+                $("#openNav").on("click", function(event) {
+                    document.getElementById("mySidenav").style.width = "250px";
+                    document.getElementById("main").style.marginLeft = "250px";
+                    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+                    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0.4)";
+                    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0.4)";
 
                 $("#addUser").click(function(){
                     $("#lowbody").load("CadastroUsuario-min.html", function(event){
@@ -42,10 +42,10 @@ $(document).ready(function(){
                     $("#fullbody").load("Sobre.html");
                     closeNav();
                 });
-            }
+            });
 
 
-            function closeNav() {
+            $("closeNav").on("click", function (event) {
                 document.getElementById("mySidenav").style.width = "0";
                 document.getElementById("main").style.marginLeft= "0";
                 document.getElementById("main").style.zIndex = "-1";
@@ -53,7 +53,7 @@ $(document).ready(function(){
                 document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
                 document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
             
-            }
+            });
 
 
     //Enviar Dados
