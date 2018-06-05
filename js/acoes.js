@@ -74,6 +74,25 @@ $(document).ready(function(){
     });
 });
 
+function closeNav() {
+ 
+          document.getElementById("mySidenav").style.width = "0";
+ 
+          document.getElementById("main").style.marginLeft= "0";
+ 
+          document.getElementById("main").style.zIndex = "-1";
+ 
+          document.body.style.backgroundColor = "white";
+ 
+          document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
+ 
+          document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
+ 
+        
+ 
+      }
+
+
 //Enviar dados por requisição assincrona
 function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser){
         $.ajax({
