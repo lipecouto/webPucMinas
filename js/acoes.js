@@ -4,11 +4,6 @@ $(document).ready(function(){
     
     //Enviar Dados
 
-    var passValidate =  document.getElementById("userPass2");
-    var password     = document.getElementById("userPass");
-
-    password.onchange = validatePassword(password.value, validate.value);
-    passValidate.onkeyup = validatePassword(password.value, validate.value);
 
 
     $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
@@ -25,13 +20,6 @@ $(document).ready(function(){
     
     });
 });
-
-function validatePassword(Pass, Validade){
-
-    if(Pass != Validate){
-       document.getElementById("alerta").style.display = "true"; 
-    }
-}
 
 //Enviar dados por requisição assincrona
 function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser){

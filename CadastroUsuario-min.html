@@ -59,4 +59,22 @@
 				  <button id="btncadastrar" type="button" class="btn btn-primary">CADASTRAR</button>
 				  <button id="btncancelar" type="button" class="btn btn-danger">CANCELAR</button>
 				 </center>
-			</div>		
+			</div>	
+
+<script type="text/javascript">
+				
+
+ 	 var passValidate =  document.getElementById("userPass2");
+     var password     = document.getElementById("userPass");
+
+     password.onchange = validatePassword(password.value, validate.value);
+     passValidate.onkeyup = validatePassword(password.value, validate.value);
+
+     function validatePassword(Pass, Validade){
+
+    if(Pass != Validate){
+       document.getElementById("alerta").style.display = "true"; 
+    }
+
+
+</script>	
