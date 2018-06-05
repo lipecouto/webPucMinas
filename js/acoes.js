@@ -4,8 +4,8 @@ $(document).ready(function(){
     
     //Enviar Dados
 
-    var passValidate =  document.getElementbyId("userPass2");
-    var password     = document.getElementbyId("userPass");
+    var passValidate =  document.getElementById("userPass2");
+    var password     = document.getElementById("userPass");
 
     password.onchange = validatePassword(password.value, validate.value);
     passValidate.onkeyup = validatePassword(password.value, validate.value);
@@ -30,7 +30,7 @@ $(document).ready(function(){
 function validatePassword(Pass, Validade){
 
     if(Pass != Validate){
-       document.getElementbyId("alerta").style.display = "true"; 
+       document.getElementById("alerta").style.display = "true"; 
     }
 }
 
