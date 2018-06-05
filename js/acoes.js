@@ -35,7 +35,7 @@ function validatePassword(Pass, Validade){
 }
 
 //Enviar dados por requisição assincrona
-function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser){
+/*function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser){
         $.ajax({
             method: "GET",
             //url: "service.php?acao=inserir",
@@ -49,4 +49,4 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
                 alert("Erro ao processar sua solicitação");
             }
         });
-}
+} */ 
