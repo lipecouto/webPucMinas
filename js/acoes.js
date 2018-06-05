@@ -22,7 +22,6 @@ $(document).ready(function(){
         var telefone = $("#userTel").val();
 
          alert("Inserido com sucesso");
-       
     
     });
 });
