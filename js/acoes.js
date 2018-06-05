@@ -5,7 +5,7 @@ $(document).ready(function(){
     //Enviar Dados
 
 
-    confirm_password.onkeyup = validatePassword();
+    userPass2.onkeyup = validatePassword();
 
     $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
 
@@ -17,7 +17,7 @@ $(document).ready(function(){
         var emailUsu = $("userEmail").val();
         var telefone = $("#userTel").val();
 
-
+         alert("Inserido com sucesso");
        
     
     });
