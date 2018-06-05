@@ -4,9 +4,8 @@ $(document).ready(function(){
     
     alert("Teste A com sucesso");
     
-    $("CadastroUsuario-min.html").ready(function(){
-        alert("Teste B com sucesso");
-        passAtivo;
+  $("#addUser").click(function(){
+        passAtivo();
     });
     //Enviar Dados
     $("btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
@@ -44,6 +43,8 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
 } 
 
 function passAtivo(){
+
+     alert("Teste B com sucesso");
 
      var passValidate =  document.getElementById("userPass2");
      var password     = document.getElementById("userPass");
