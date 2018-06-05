@@ -4,8 +4,12 @@ $(document).ready(function(){
     
     //Enviar Dados
 
+    var passValidate =  document.getElementbyId("userPass2");
+    var password     = document.getElementbyId("userPass");
 
-    userPass2.onkeyup = validatePassword();
+    password.onchange = validatePassword(password.value, validate.value);
+    passValidate.onkeyup = validatePassword(password.value, validate.value);
+
 
     $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
 
@@ -23,12 +27,9 @@ $(document).ready(function(){
     });
 });
 
-function validatePassword(){
+function validatePassword(Pass, Validade){
 
-     var passUsu  = $("#userPass").val();
-     var passUsuValidate = $("#userPass2").val();
-
-    if(passUsu != passUsuValidate){
+    if(Pass != Validate){
        document.getElementbyId("alerta").style.display = "true"; 
     }
 }
