@@ -1,15 +1,3 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-  <title>DIDEE - Gestão de Condomínio</title> 
-  <meta charset="utf-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-  <link href="css/cadastrarusuario.css" rel="stylesheet"> 
-</head> 
-  <body> 
 		<div class="container-fluid>
 			<!--Container para alterar a cor de todo o conjunto quando o menu for acionado-->
 			<div class="container">
@@ -58,17 +46,17 @@
 								<label for="pwd">Confirmar senha</label>
 								<input type="password" class="form-control" id="userPass2">
 							</div>
-								
+							<div class="alert alert-warning" role="alert" id="alerta" style="display: none;">
+							  A confirmação da senha não confere com a senha digitada
+							</div>
 								
 						</div>
 					</form>
 			</div>	
 				<br>
-				<div class="container">    
-				  <center>
-				  	<button id="btncadastrar" type="button" class="btn btn-primary">CADASTRAR</button>
-				  	<button id="btncancelar" type="button" class="btn btn-danger">CANCELAR</button>
-				  </center>
-				</div>		
-  </body> 
-</html>		
+			<div class="container">    
+				 <center>
+				  <button id="btncadastrar" type="button" class="btn btn-primary">CADASTRAR</button>
+				  <button id="btncancelar" type="button" class="btn btn-danger">CANCELAR</button>
+				 </center>
+			</div>		
