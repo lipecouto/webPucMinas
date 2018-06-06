@@ -12,11 +12,11 @@ $(document).ready(function(){
                 $("#addUser").click(function(){
                     $("#lowbody").load("CadastroUsuario-min.html", function(event){
                         closeNav();
-                            $("userPass2").change(function(event){
+                            $("#userPass2").change(function(event){
                              alert("Executou o userpass.change");
 
                             });
-                            $("userPass").change(function(event){
+                            $("#userPass").change(function(event){
                                 passAtivo;   
                             });
                     });
