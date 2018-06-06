@@ -34,15 +34,6 @@ body {
     font-family: "Lato", sans-serif;
     transition: background-color .5s;
 }
-
-
-input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    /* border: 1px solid #ccc; */
-    /* border-radius: 4px; */
-    resize: vertical;
-
     
 .navbar-brand {
 	float: right;
@@ -50,6 +41,7 @@ input[type=text], select, textarea {
 
 .form-group{
 	display: inline-block;
+	width: 100%;
 	
 }
 

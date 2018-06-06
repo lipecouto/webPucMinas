@@ -112,7 +112,7 @@ function passAtivo(password, passValidate){
     }
     else {
        $("#btncadastrar").css("display","true"); 
-        document.getElementById("alerta").style.display = "none"; 
+        $("#alerta").css("display", "none"); 
     }
 
 }
