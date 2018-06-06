@@ -40,9 +40,12 @@ $(document).ready(function(){
                 $("#users").click(function(){
                     $("#fullbody").load("Usuarios-min.html", function(event){
                        closeNav();
+                    });    
+                });
 
+                $("#listUsers").click(function(){
+                    $("#fullbody").load("Usuarios-min.html", function(event){
                     });
-                   
                 });
                 //aboutus
                 $("#aboutus").click(function(){
@@ -75,12 +78,12 @@ $(document).ready(function(){
         var telefone = $("#userTel").val();
 
         usuario = {
-            Nome: nomeUsu,
-            CPF: cpfUsu,
-            Login: loginUsu,
-            Senha: passUsu,
-            Email: emailUsu,
-            Telefone: telefone
+            "Nome:"+nomeUsu,
+            "CPF:"+cpfUsu,
+            "Login:"+loginUsu,
+            "Senha:"+passUsu,
+            "Email:"+emailUsu,
+            "Telefone:"+telefone
         }; 
         enviar(usuario);
     });
