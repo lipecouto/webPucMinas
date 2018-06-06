@@ -113,8 +113,8 @@ function enviar(user){
 }    
 
 function listaUsers(){
-    $.get("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
-        alert(data);
+    $.get("http://ip.jsontest.com/", function(data){
+        alert(data[0]['ip']);
     });
 }
 
