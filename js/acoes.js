@@ -45,6 +45,7 @@ $(document).ready(function(){
 
                 $("#listUsers").click(function(){
                     $("#fullbody").load("Usuarios-min.html", function(event){
+                       alert("tudo certo");
                     });
                 });
                 //aboutus
@@ -105,7 +106,7 @@ function enviar(user){
             url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
             dataType: "json",
             success: function(data){
-                alert(data.msg);
+                alert(data.msg+"msg teste 1"+);
             }, 
             data: user          
         }) 
