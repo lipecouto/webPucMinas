@@ -13,7 +13,9 @@ $(document).ready(function(){
                     $("#lowbody").load("CadastroUsuario-min.html", function(event){
                         closeNav();
                             $("#userPass2").change(function(event){
-                                passAtivo();
+                                var passVal = $("#userPass2").val()
+                                var pass = $("#userPass").val()
+                                passAtivo(pass, passVal);
                             });
                     });
                     
@@ -100,13 +102,16 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
         });
 } 
 
-function passAtivo(){
+function passAtivo(password passValidate){
 
-     var passValidate =  document.getElementById("userPass2");
-     var password     = document.getElementById("userPass");
-
-    if(password.value != passValidate.value){
+    alert("Alerta do PasAtivo funcionou");
+    if(password != passValidate){
        document.getElementById("alerta").style.display = "true"; 
+       $("#btncadastrar").css("display","none");
+    }
+    else {
+       $("#btncadastrar").css("display","true"); 
+        document.getElementById("alerta").style.display = "none"; 
     }
 
 }
