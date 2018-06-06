@@ -49,7 +49,7 @@ $(document).ready(function(){
             });
 
 
-            $("closeNav").on("click", function (event) {
+            $("#closeNav").on("click", function (event) {
                 document.getElementById("mySidenav").style.width = "0";
                 document.getElementById("main").style.marginLeft= "0";
                 document.getElementById("main").style.zIndex = "-1";
@@ -91,7 +91,7 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
         $.ajax({
             method: "GET",
             //url: "service.php?acao=inserir",
-            url: "http://apicondominio.azurewebsites.net/api/usuario",
+            url: "http://apicondominio.azurewebsites.net/api/usuario?PutUsuario",
             data: {nome: nomeUsuer, cpf: cpfUser, login: loginUser, pass: passUser, email: emailUser, tel: telefoneUser} 
         })
         .done(function(msg){
@@ -105,14 +105,14 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
 
 function passAtivo(password, passValidate){
 
-    alert("Alerta do PasAtivo funcionou");
     if(password != passValidate){
-        $("#alerta").css("display", "true"); 
-       $("#btncadastrar").css("display","none");
+        alert("As senhas não conferem favor verificar");
+        $("#alerta").css("display","true"); 
+        $("#btncadastrar").css("display","none");
     }
     else {
        $("#btncadastrar").css("display","true"); 
-        $("#alerta").css("display", "none"); 
+       $("#alerta").css("display", "none"); 
     }
 
 }
