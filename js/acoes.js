@@ -23,34 +23,34 @@ $(document).ready(function(){
                 });
 
                 $("#newOrder").click(function(){
-                    $("#fullbody").load("CadastrarContaPagar-min.html");
+                    $("#lowbody").load("CadastrarContaPagar-min.html");
                     closeNav();
                 });
 
                 $("#postMsg").click(function(){
-                    $("#fullbody").load("CadastrarPostagens-min.html");
+                    $("#lowbody").load("CadastrarPostagens-min.html");
                     closeNav();
                 });
 
                 $("#posts").click(function(){
-                    $("#fullbody").load("Postagens-min.html");
+                    $("#lowbody").load("Postagens-min.html");
                     closeNav();
                 });
 
                 $("#users").click(function(){
-                    $("#fullbody").load("Usuarios-min.html", function(event){
+                    $("#lowbody").load("Usuarios-min.html", function(event){
                        closeNav();
                     });    
                 });
 
                 $("#listUsers").click(function(){
-                    $("#fullbody").load("Usuarios-min.html", function(event){
+                    $("#lowbody").load("Usuarios-min.html", function(event){
                        alert("tudo certo");
                     });
                 });
                 //aboutus
                 $("#aboutus").click(function(){
-                    $("#fullbody").load("Sobre.html");
+                    $("#lowbody").load("Sobre.html");
                     closeNav();
                 });
             });
