@@ -110,7 +110,7 @@ function enviar(user){
             }, 
             data: user          
         }) 
-} 
+}    
 
 function listaUsers(){
     $.ajax({
