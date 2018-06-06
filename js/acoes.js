@@ -102,7 +102,7 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
         });
 } 
 
-function passAtivo(password passValidate){
+function passAtivo(password, passValidate){
 
     alert("Alerta do PasAtivo funcionou");
     if(password != passValidate){
