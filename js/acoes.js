@@ -114,7 +114,7 @@ function enviar(user){
 
 function listaUsers(){
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "http://apicondominio.azurewebsites.net/api/usuario/",
         contentType: "application/json; charset=utf-8",
         data: "{}",
