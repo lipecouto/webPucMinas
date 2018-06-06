@@ -77,15 +77,7 @@ $(document).ready(function(){
         var emailUsu = $("#userEmail").val();
         var telefone = $("#userTel").val();
 
-        usuario = {
-            Nome: $("#fullname").val(),
-            CPF:  $("#personid").val(),
-            Login: $("#userLogin").val(),
-            Senha: $("#userPass").val(),
-            Email:  $("#userEmail").val(),
-            Telefone: $("#userTel").val() 
-        }; 
-        enviar(usuario);
+        enviar();
     });
 });
 
@@ -100,21 +92,31 @@ function closeNav() {
 
 
 //Enviar dados por requisição assincrona
-function enviar(user){
+function enviar(){
+        usuario = {
+            Nome: $("#fullname").val(),
+            CPF:  $("#personid").val(),
+            Login: $("#userLogin").val(),
+            Senha: $("#userPass").val(),
+            Email:  $("#userEmail").val(),
+            Telefone: $("#userTel").val() 
+        }; 
+
         $.ajax({
             type: "POST",
             url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
             dataType: "json",
+            data: usuario,     
             success: function(data){
                 alert(data.msg+"msg teste 1");
-            }, 
-            data: user          
+            } 
+               
         }) 
 }    
 
 function listaUsers(){
-    $.getJSON("http://ip.jsontest.com/", function(data){
-        alert(data[0]['ip']);
+    $.getJSON("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
+        console.log(data[1].Nome);
     });
 }
 
