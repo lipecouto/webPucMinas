@@ -78,12 +78,12 @@ $(document).ready(function(){
         var telefone = $("#userTel").val();
 
         usuario = {
-            Nome: $("#fullname").val();
-            CPF:  $("#personid").val();
-            Login: $("#userLogin").val();
-            Senha: $("#userPass").val();
-            Email:  $("#userEmail").val();
-            Telefone: $("#userTel").val(); 
+            Nome: $("#fullname").val(),
+            CPF:  $("#personid").val(),
+            Login: $("#userLogin").val(),
+            Senha: $("#userPass").val(),
+            Email:  $("#userEmail").val(),
+            Telefone: $("#userTel").val() 
         }; 
         enviar(usuario);
     });
