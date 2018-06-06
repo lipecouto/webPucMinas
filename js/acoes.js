@@ -89,7 +89,7 @@ function closeNav() {
 //Enviar dados por requisição assincrona
 function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser){
         $.ajax({
-            method: "GET",
+            method: "POST",
             //url: "service.php?acao=inserir",
             url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
             data: {Nome: nomeUsuer, CPF: cpfUser, Login: loginUser, Senha: passUser, Email: emailUser, Telefone: telefoneUser} 
