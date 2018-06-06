@@ -12,11 +12,12 @@ $(document).ready(function(){
                 $("#addUser").click(function(){
                     $("#lowbody").load("CadastroUsuario-min.html", function(event){
                         closeNav();
-                            $("userPass2").change(function(){
-                                passAtivo();   
+                            $("userPass2").change(function(event){
+                             alert("Executou o userpass.change");
+
                             });
-                            $("userPass").change(function(){
-                                passAtivo();   
+                            $("userPass").change(function(event){
+                                passAtivo;   
                             });
                     });
                     
@@ -113,8 +114,6 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
 } 
 
 function passAtivo(){
-
-     alert("Teste B com sucesso");
 
      var passValidate =  document.getElementById("userPass2");
      var password     = document.getElementById("userPass");
