@@ -40,10 +40,12 @@ $(document).ready(function(){
                 $("#users").click(function(){
                     $("#lowbody").load("Usuarios-min.html", function(event){
                        closeNav();
+                       listaUsers();
                     });    
                 });
 
                 $("#listUsers").click(function(){
+                     alert("entrou na funcao do botao");
                     $("#lowbody").load("Usuarios-min.html", function(event){
                        alert("tudo certo");
                     });
