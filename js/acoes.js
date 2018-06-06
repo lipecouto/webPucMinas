@@ -113,7 +113,7 @@ function enviar(user){
 }    
 
 function listaUsers(){
-    $.get("http://ip.jsontest.com/", function(data){
+    $.getJSON("http://ip.jsontest.com/", function(data){
         alert(data[0]['ip']);
     });
 }
