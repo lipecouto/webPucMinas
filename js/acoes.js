@@ -11,13 +11,13 @@ $(document).ready(function(){
 
                 $("#addUser").click(function(){
                     $("#lowbody").load("CadastroUsuario-min.html", function(event){
-                        document.getElementById("#alerta").style.display = "none"; 
                         closeNav();
-                            $("#userPass2").change(function(event){
-                                var passVal = $("#userPass2").val()
-                                var pass = $("#userPass").val()
-                                passAtivo(pass, passVal);
-                            });
+                         $("#alerta").css("display", "none"); 
+                         $("#userPass2").change(function(event){
+                            var passVal = $("#userPass2").val()
+                            var pass = $("#userPass").val()
+                            passAtivo(pass, passVal);
+                         });
                     });
                     
                 });
