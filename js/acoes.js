@@ -1,61 +1,59 @@
 //javaScript Document
 
 $(document).ready(function(){
-                
-                $("#openNav").on("click", function(event) {
-                    document.getElementById("mySidenav").style.width = "250px";
-                    document.getElementById("main").style.marginLeft = "250px";
-                    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-                    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0.4)";
-                    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0.4)";
 
-                $("#addUser").click(function(){
-                    $("#lowbody").load("CadastroUsuario-min.html", function(event){
-                         closeNav();
-                         $("#alerta").css("display", "none"); 
-                         $("#userPass2").change(function(event){
-                            var passVal = $("#userPass2").val()
-                            var pass = $("#userPass").val()
-                            passAtivo(pass, passVal);
-                         });
-                    });
-                    
-                });
+     $("#listUsers").click(function(){       
+        $("#lowbody").load("Usuarios-min.html", function(){});
+        });
+     
+     $("#openNav").on("click", function(event) {
+         document.getElementById("mySidenav").style.width = "250px";
+         document.getElementById("main").style.marginLeft = "250px";
+         document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+         document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0.4)";
+         document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0.4)";
 
-                $("#newOrder").click(function(){
-                    $("#lowbody").load("CadastrarContaPagar-min.html");
-                    closeNav();
-                });
-
-                $("#postMsg").click(function(){
-                    $("#lowbody").load("CadastrarPostagens-min.html");
-                    closeNav();
-                });
-
-                $("#posts").click(function(){
-                    $("#lowbody").load("Postagens-min.html");
-                    closeNav();
-                });
-
-                $("#users").click(function(){
-                    $("#lowbody").load("Usuarios-min.html", function(event){
-                       closeNav();
-                       listaUsers();
-                    });    
-                });
-
-                $("#listUsers").click(function(){
-                     alert("entrou na funcao do botao");
-                    $("#lowbody").load("Usuarios-min.html", function(event){
-                       alert("tudo certo");
-                    });
-                });
-                //aboutus
-                $("#aboutus").click(function(){
-                    $("#lowbody").load("Sobre.html");
-                    closeNav();
-                });
+        $("#addUser").click(function(){
+             $("#lowbody").load("CadastroUsuario-min.html", function(event){
+              closeNav();
+              $("#alerta").css("display", "none"); 
+              $("#userPass2").change(function(event){
+                 var passVal = $("#userPass2").val()
+                 var pass = $("#userPass").val()
+                 passAtivo(pass, passVal);
+              });
             });
+         
+        });
+
+        $("#newOrder").click(function(){
+            $("#lowbody").load("CadastrarContaPagar-min.html");
+            closeNav();
+         });
+
+        $("#postMsg").click(function(){
+             $("#lowbody").load("CadastrarPostagens-min.html");
+             closeNav();
+        });
+
+         $("#posts").click(function(){
+             $("#lowbody").load("Postagens-min.html");
+             closeNav();
+        });
+
+        $("#users").click(function(){
+             $("#lowbody").load("Usuarios-min.html", function(event){
+               closeNav();
+               listaUsers();
+             });    
+         });
+
+     //aboutus
+        $("#aboutus").click(function(){
+             $("#lowbody").load("Sobre.html");
+            closeNav();
+        });
+    });
 
 
             $("#closeNav").on("click", function (event) {
@@ -127,8 +125,12 @@ function listaUsers(){
 }
 
 function SucessCallback(result) {
-            alert('Resultado: ' + result.Message + ' <br /> Descrição: ' + result.Description);
-        }
+     alert('Resultado: ' + result.Message + ' <br /> Descrição: ' + result.Description);
+}
+
+function FailureCallBack(result){
+     alert(result.status + ' ' + result.statusText);
+} 
 
 function passAtivo(password, passValidate){
 
