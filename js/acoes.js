@@ -68,7 +68,7 @@ $(document).ready(function(){
         var loginUsu = $("#userLogin").val();
         var passUsu  = $("#userPass").val();
         var passUsuValidate = $("#userPass2").val();
-        var emailUsu = $("userEmail").val();
+        var emailUsu = $("#userEmail").val();
         var telefone = $("#userTel").val();
 
          
@@ -91,7 +91,7 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
         $.ajax({
             method: "GET",
             //url: "service.php?acao=inserir",
-            url: "http://apicondominio.azurewebsites.net/api/PostUsuario",
+            url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
             data: {Nome: nomeUsuer, CPF: cpfUser, Login: loginUser, Senha: passUser, Email: emailUser, Telefone: telefoneUser} 
         })
         .done(function(msg){
