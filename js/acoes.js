@@ -64,7 +64,7 @@ $(document).ready(function(){
                 document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
             
             });
-            
+
     //Enviar Dados
     $("btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
 
@@ -103,17 +103,12 @@ function enviar(user){
         $.ajax({
             type: "POST",
             url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json", 
-            data: {user},
-           
-        }).done(function(msg){
-                    if(msg == "ok"){
-                        alert("Inserido com sucesso");
-                    }else{
-                        alert("Erro ao processar sua solicitação");
-                    }
-                });
+            dataType: "json",
+            success: function(data){
+                alert(data.msg);
+            }, 
+            data: user          
+        }) 
 } 
 
 function listaUsers(){
