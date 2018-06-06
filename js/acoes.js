@@ -11,11 +11,15 @@ $(document).ready(function(){
 
                 $("#addUser").click(function(){
                     $("#lowbody").load("CadastroUsuario-min.html", function(event){
-                            alert("Pagina carregada");
-                            passAtivo();
-                    
+                        closeNav();
+                            $("userPass2").change(function(){
+                                passAtivo();   
+                            });
+                            $("userPass").change(function(){
+                                passAtivo();   
+                            });
                     });
-                    closeNav();
+                    
                 });
 
                 $("#newOrder").click(function(){
@@ -66,8 +70,6 @@ $(document).ready(function(){
         var passUsuValidate = $("#userPass2").val();
         var emailUsu = $("userEmail").val();
         var telefone = $("#userTel").val();
-
-         alert("Inserido com sucesso");
 
          
     
