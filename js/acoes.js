@@ -11,7 +11,7 @@ $(document).ready(function(){
 
                 $("#addUser").click(function(){
                     $("#lowbody").load("CadastroUsuario-min.html", function(event){
-                        closeNav();
+                         closeNav();
                          $("#alerta").css("display", "none"); 
                          $("#userPass2").change(function(event){
                             var passVal = $("#userPass2").val()
@@ -38,8 +38,11 @@ $(document).ready(function(){
                 });
 
                 $("#users").click(function(){
-                    $("#fullbody").load("Usuarios-min.html");
-                    closeNav();
+                    $("#fullbody").load("Usuarios-min.html", function(event){
+                       closeNav();
+
+                    });
+                   
                 });
                 //aboutus
                 $("#aboutus").click(function(){
@@ -71,8 +74,15 @@ $(document).ready(function(){
         var emailUsu = $("#userEmail").val();
         var telefone = $("#userTel").val();
 
-         
-    
+        usuario = {
+            Nome: nomeUsu;
+            CPF: cpfUsu;
+            Login: loginUsu;
+            Senha: passUsu;
+            Email: emailUsu;
+            Telefone: telefone;
+        }; 
+        enviar(usuario);
     });
 });
 
@@ -87,12 +97,13 @@ function closeNav() {
 
 
 //Enviar dados por requisição assincrona
-function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser){
+function enviar(user){
         $.ajax({
             method: "POST",
-            //url: "service.php?acao=inserir",
+            contentType: "application/json; charset=utf-8",
             url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
-            data: {Nome: nomeUsuer, CPF: cpfUser, Login: loginUser, Senha: passUser, Email: emailUser, Telefone: telefoneUser} 
+            data: {user},
+            dataType: "json", 
         })
         .done(function(msg){
             if(msg == "ok"){
@@ -102,6 +113,22 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
             }
         });
 } 
+
+function listaUsers(){
+    $.ajax({
+        type: "GET",
+        url: "http://apicondominio.azurewebsites.net/api/usuario",
+        contentType: "application/json; charset=utf-8",
+        data: "{}",
+        dataType: "json",
+        success: function(data) { SucessCallback(data.d); },
+        error: function(data) { FailureCallBack(data); }
+    });
+}
+
+function SucessCallback(result) {
+            alert('Resultado: ' + result.Message + ' <br /> Descrição: ' + result.Description);
+        }
 
 function passAtivo(password, passValidate){
 
