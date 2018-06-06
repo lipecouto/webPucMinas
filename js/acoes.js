@@ -91,8 +91,8 @@ function enviar(nomeUsuer, cpfUser, loginUser, passUser, emailUser, telefoneUser
         $.ajax({
             method: "GET",
             //url: "service.php?acao=inserir",
-            url: "http://apicondominio.azurewebsites.net/api/usuario?PutUsuario",
-            data: {nome: nomeUsuer, cpf: cpfUser, login: loginUser, pass: passUser, email: emailUser, tel: telefoneUser} 
+            url: "http://apicondominio.azurewebsites.net/api/PostUsuario",
+            data: {Nome: nomeUsuer, CPF: cpfUser, Login: loginUser, Senha: passUser, Email: emailUser, Telefone: telefoneUser} 
         })
         .done(function(msg){
             if(msg == "ok"){
