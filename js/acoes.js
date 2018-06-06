@@ -75,12 +75,12 @@ $(document).ready(function(){
         var telefone = $("#userTel").val();
 
         usuario = {
-            Nome: nomeUsu;
-            CPF: cpfUsu;
-            Login: loginUsu;
-            Senha: passUsu;
-            Email: emailUsu;
-            Telefone: telefone;
+            Nome: nomeUsu,
+            CPF: cpfUsu,
+            Login: loginUsu,
+            Senha: passUsu,
+            Email: emailUsu,
+            Telefone: telefone
         }; 
         enviar(usuario);
     });
