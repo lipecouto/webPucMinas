@@ -11,7 +11,7 @@ $(document).ready(function(){
 
                 $("#addUser").click(function(){
                     $("#lowbody").load("CadastroUsuario-min.html", function(event){
-                        document.getElementById("alerta").style.display = "none"; 
+                        document.getElementById("#alerta").style.display = "none"; 
                         closeNav();
                             $("#userPass2").change(function(event){
                                 var passVal = $("#userPass2").val()
@@ -107,7 +107,7 @@ function passAtivo(password, passValidate){
 
     alert("Alerta do PasAtivo funcionou");
     if(password != passValidate){
-       document.getElementById("alerta").style.display = "true"; 
+       document.getElementById("#alerta").style.display = "true"; 
        $("#btncadastrar").css("display","none");
     }
     else {
