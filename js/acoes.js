@@ -64,8 +64,7 @@ $(document).ready(function(){
                 document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
             
             });
-
-
+            
     //Enviar Dados
     $("btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
 
