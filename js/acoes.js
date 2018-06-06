@@ -113,14 +113,8 @@ function enviar(user){
 }    
 
 function listaUsers(){
-    $.ajax({
-        type: "GET",
-        url: "http://apicondominio.azurewebsites.net/api/usuario/",
-        contentType: "application/json; charset=utf-8",
-        data: "{}",
-        dataType: "json",
-        success: function(data) { SucessCallback(data.d); },
-        error: function(data) { FailureCallBack(data); }
+    $.get("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
+        alert(data);
     });
 }
 
