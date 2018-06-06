@@ -13,11 +13,7 @@ $(document).ready(function(){
                     $("#lowbody").load("CadastroUsuario-min.html", function(event){
                         closeNav();
                             $("#userPass2").change(function(event){
-                             alert("Executou o userpass.change");
-
-                            });
-                            $("#userPass").change(function(event){
-                                passAtivo;   
+                                passAtivo();
                             });
                     });
                     
@@ -78,21 +74,12 @@ $(document).ready(function(){
 });
 
 function closeNav() {
- 
           document.getElementById("mySidenav").style.width = "0";
- 
           document.getElementById("main").style.marginLeft= "0";
- 
           document.getElementById("main").style.zIndex = "-1";
- 
           document.body.style.backgroundColor = "white";
- 
           document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
- 
           document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
- 
-        
- 
       }
 
 
@@ -117,10 +104,6 @@ function passAtivo(){
 
      var passValidate =  document.getElementById("userPass2");
      var password     = document.getElementById("userPass");
-
-     password.onchange = validatePassword(password.value, validate.value);
-     passValidate.onkeyup = validatePassword(password.value, validate.value);
-
 
     if(password.value != passValidate.value){
        document.getElementById("alerta").style.display = "true"; 
