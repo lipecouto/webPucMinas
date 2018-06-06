@@ -78,12 +78,12 @@ $(document).ready(function(){
         var telefone = $("#userTel").val();
 
         usuario = {
-            "Nome:"+nomeUsu,
-            "CPF:"+cpfUsu,
-            "Login:"+loginUsu,
-            "Senha:"+passUsu,
-            "Email:"+emailUsu,
-            "Telefone:"+telefone
+            Nome: $("#fullname").val();
+            CPF:  $("#personid").val();
+            Login: $("#userLogin").val();
+            Senha: $("#userPass").val();
+            Email:  $("#userEmail").val();
+            Telefone: $("#userTel").val(); 
         }; 
         enviar(usuario);
     });
@@ -102,19 +102,19 @@ function closeNav() {
 //Enviar dados por requisição assincrona
 function enviar(user){
         $.ajax({
-            method: "POST",
-            contentType: "application/json; charset=utf-8",
+            type: "POST",
             url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
-            data: {user},
+            contentType: "application/json; charset=utf-8",
             dataType: "json", 
-        })
-        .done(function(msg){
-            if(msg == "ok"){
-                alert("Inserido com sucesso");
-            }else{
-                alert("Erro ao processar sua solicitação");
-            }
-        });
+            data: {user},
+           
+        }).done(function(msg){
+                    if(msg == "ok"){
+                        alert("Inserido com sucesso");
+                    }else{
+                        alert("Erro ao processar sua solicitação");
+                    }
+                });
 } 
 
 function listaUsers(){
