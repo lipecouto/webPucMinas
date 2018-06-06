@@ -1,7 +1,7 @@
 //javaScript Document
 
 $(document).ready(function(){
-    
+                
                 $("#openNav").on("click", function(event) {
                     document.getElementById("mySidenav").style.width = "250px";
                     document.getElementById("main").style.marginLeft = "250px";
@@ -11,6 +11,7 @@ $(document).ready(function(){
 
                 $("#addUser").click(function(){
                     $("#lowbody").load("CadastroUsuario-min.html", function(event){
+                        document.getElementById("alerta").style.display = "none"; 
                         closeNav();
                             $("#userPass2").change(function(event){
                                 var passVal = $("#userPass2").val()
