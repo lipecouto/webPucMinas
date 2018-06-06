@@ -107,7 +107,7 @@ function passAtivo(password, passValidate){
 
     alert("Alerta do PasAtivo funcionou");
     if(password != passValidate){
-       document.getElementById("#alerta").style.display = "true"; 
+        $("#alerta").css("display", "true"); 
        $("#btncadastrar").css("display","none");
     }
     else {
