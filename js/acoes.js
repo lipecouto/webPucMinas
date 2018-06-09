@@ -67,16 +67,8 @@ $(document).ready(function(){
             });
 
     //Enviar Dados
-    $("btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
-
-        var nomeUsu  = $("#fullname").val();
-        var cpfUsu   = $("#personid").val();
-        var loginUsu = $("#userLogin").val();
-        var passUsu  = $("#userPass").val();
-        var passUsuValidate = $("#userPass2").val();
-        var emailUsu = $("#userEmail").val();
-        var telefone = $("#userTel").val();
-
+    $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
+        alert("Botao funcionando")
         enviar();
     });
 });
@@ -93,7 +85,8 @@ function closeNav() {
 
 //Enviar dados por requisição assincrona
 function enviar(){
-        usuario = {
+    alert("Entrou na funcao enviar");
+    usuario = {
             Nome: $("#fullname").val(),
             CPF:  $("#personid").val(),
             Login: $("#userLogin").val(),
@@ -101,7 +94,7 @@ function enviar(){
             Email:  $("#userEmail").val(),
             Telefone: $("#userTel").val() 
         }; 
-
+    alert("Agora returna "+usuario);
         $.ajax({
             type: "POST",
             url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
