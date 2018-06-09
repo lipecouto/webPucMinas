@@ -18,10 +18,9 @@
 		    	<div id="mySidenav" class="sidenav">
 				  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 				  <a href="Home.html">HOME</a>
-				  <a href="#">CONTAS A PAGAR</a>
+				  <a href="#" id="count">CONTAS A PAGAR</a>
 				  <a href="#" id="posts">POSTAGENS</a>
 				  <a href="#" id="users">MORADORES</a>
-				  <a href="#">CONTATO</a>
 				  <a href="#" id="aboutus">SOBRE NOS</a>
 				  <a href="Login.html">SAIR</a>
 				  <br>
@@ -96,7 +95,7 @@
 			</footer>
 		</div>
 
-				<script>
+		<script>
 			
 			function openNav() {
 			    document.getElementById("mySidenav").style.width = "250px";
@@ -132,6 +131,11 @@
 				//aboutus
 				$("#aboutus").click(function(){
 					$("#fullbody").load("Sobre.html");
+					closeNav();
+				});
+
+				$("#count").click(function(){
+					$("#fullbody").load("Contas-min.html");
 					closeNav();
 				});
 			}
