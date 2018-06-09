@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>DIDEE - Gestão de Condomínio</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="css/usuarios.css" rel="stylesheet">
-</head>
-	<body>
+
 		<div class="container-fluid">
 			<div class="container">
 			  <div>
@@ -55,61 +44,3 @@
 				</center>
 			</footer>
 		</div>
-
-		<script>
-			
-			function openNav() {
-			    document.getElementById("mySidenav").style.width = "250px";
-			    document.getElementById("main").style.marginLeft = "250px";
-			    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-			    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0.4)";
-			    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0.4)";
-
-			    $("#addUser").click(function(){
-					$("#fullbody").load("CadastroUsuario-min.html");
-					closeNav();
-				});
-
-				$("#newOrder").click(function(){
-					$("#fullbody").load("CadastrarContaPagar-min.html");
-					closeNav();
-				});
-
-				$("#postMsg").click(function(){
-					$("#fullbody").load("CadastrarPostagens-min.html");
-					closeNav();
-				});
-
-				$("#posts").click(function(){
-					$("#fullbody").load("Postagens-min.html");
-					closeNav();
-				});
-
-				$("#users").click(function(){
-					$("#fullbody").load("Usuarios-min.html");
-					closeNav();
-				});
-				//aboutus
-				$("#aboutus").click(function(){
-					$("#fullbody").load("Sobre.html");
-					closeNav();
-				});
-
-				$("#count").click(function(){
-					$("#fullbody").load("Contas-min.html");
-					closeNav();
-				});
-			}
-
-
-			function closeNav() {
-			    document.getElementById("mySidenav").style.width = "0";
-			    document.getElementById("main").style.marginLeft= "0";
-			    document.body.style.backgroundColor = "white";
-			    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
-			    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
-			}
-
-		</script>
-	</body>
-</html>

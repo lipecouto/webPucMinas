@@ -133,4 +133,4 @@ function passAtivo(password, passValidate){
        $("#alerta").css("display", "none"); 
     }
 
-}
+}  
