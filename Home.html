@@ -18,7 +18,7 @@
 		    	<div id="mySidenav" class="sidenav">
 				  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 				  <a href="Home.html">HOME</a>
-				  <a href="#">CONTAS A PAGAR</a>
+				  <a href="#" id="count">CONTAS A PAGAR</a>
 				  <a href="#" id="posts">POSTAGENS</a>
 				  <a href="#" id="users">MORADORES</a>
 				  <a href="#">CONTATO</a>
@@ -65,7 +65,7 @@
   			  <div class="row">
 				<div class='col-sm-4'>
 				  <center>
-					  <a href="#">
+					  <a href="Contas.html">
 					  	<img class="img-responsive" src="img/iconcontaapagar.png" id="iconhome">
 					  </a>
 					  <h4>VISUALIZAR CONTAS</h4>
@@ -132,6 +132,11 @@
 				//aboutus
 				$("#aboutus").click(function(){
 					$("#fullbody").load("Sobre.html");
+					closeNav();
+				});
+
+				$("#count").click(function(){
+					$("#fullbody").load("Contas-min.html");
 					closeNav();
 				});
 			}
