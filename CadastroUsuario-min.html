@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>DIDEE - Gestão de Condomínio</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="css/cadastrarusuario.css" rel="stylesheet">
-</head>
-	<body>
-		<div class="container-fluid">
-
+		<div class="container-fluid>
+			<!--Container para alterar a cor de todo o conjunto quando o menu for acionado-->
 			<div class="container">
 				<div class="formhead">
 					<img align="left" class="img-responsive" src="img/iconpostagem.png" id="imgtext">
@@ -40,8 +28,7 @@
 								<label for="contact">Telefone</label>
 								<input type="text" class="form-control" id="userTel" placeholder="xx xxxxx-xxxx">
 							</div>	
-						</div>	
-
+						</div>
 						<br>
 						<hr>
 						<h4>Dados para acesso do novo usuario</h4>
@@ -53,76 +40,23 @@
 							<br><br>	
 							<div class="input-group">
 								<label for="pwd">Senha</label>
-								<input type="password" class="form-control" id="userPass">
+								<input type="password" class="form-control" id="userPass" >
 							</div>
 							<div class="input-group">
 								<label for="pwd">Confirmar senha</label>
-								<input type="password" class="form-control" id="userPass">
+								<input type="password" class="form-control" id="userPass2" required>
 							</div>
-								
-								
+							<br><br>	
+							<div class="alert alert-warning" role="alert" id="alerta">
+							  A confirmação da senha não confere com a senha digitada
+							</div>		
 						</div>
 					</form>
 			</div>	
 				<br>
-				<div class="container">    
-				  <center>
-				  	<button id="btncadastrar" type="button" class="btn btn-primary">CADASTRAR</button>
-				  	<button id="btncancelar" type="button" class="btn btn-danger">CANCELAR</button>
-				  </center>
-				</div>		
-		</div>
-
-		<script>
-			
-			function openNav() {
-			    document.getElementById("mySidenav").style.width = "250px";
-			    document.getElementById("main").style.marginLeft = "250px";
-			    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-			    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0.4)";
-			    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0.4)";
-
-			    $("#addUser").click(function(){
-					$("#fullbody").load("CadastroUsuario-min.html");
-					closeNav();
-				});
-
-				$("#newOrder").click(function(){
-					$("#fullbody").load("CadastrarContaPagar-min.html");
-					closeNav();
-				});
-
-				$("#postMsg").click(function(){
-					$("#fullbody").load("CadastrarPostagens-min.html");
-					closeNav();
-				});
-
-				$("#posts").click(function(){
-					$("#fullbody").load("Postagens-min.html");
-					closeNav();
-				});
-
-				$("#users").click(function(){
-					$("#fullbody").load("Usuarios-min.html");
-					closeNav();
-				});
-				//aboutus
-				$("#aboutus").click(function(){
-					$("#fullbody").load("Sobre.html");
-					closeNav();
-				});
-			}
-
-
-			function closeNav() {
-			    document.getElementById("mySidenav").style.width = "0";
-			    document.getElementById("main").style.marginLeft= "0";
-			    document.body.style.backgroundColor = "white";
-			    document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
-			    document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
-			}
-
-		</script>
-		
-	</body>
-</html>
+			<div class="container">    
+				 <center>
+				  <button id="btncadastrar" type="button" class="btn btn-primary">CADASTRAR</button>
+				  <button id="btncancelar" type="button" class="btn btn-danger">CANCELAR</button>
+				 </center>
+			</div>		

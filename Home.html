@@ -7,16 +7,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="js/acoes.js"></script>
   <link href="css/home.css" rel="stylesheet">
+  <link href="css/cadastrarusuario.css" rel="stylesheet"> 
+  <link href="css/usuarios.css" rel="stylesheet">
 </head>
 	<body>
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div id="main">
-		    	<span style="font-size:30px;cursor:pointer; color: #777" onclick="openNav()">&#9776;</span>
+		    	<span style="font-size:30px;cursor:pointer; color: #777" id="openNav">&#9776;</span>
 		    	<div id="mySidenav" class="sidenav">
-				  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				  <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
 				  <a href="Home.html">HOME</a>
 				  <a href="#" id="count">CONTAS A PAGAR</a>
 				  <a href="#" id="posts">POSTAGENS</a>
@@ -80,7 +83,7 @@
 				</div>
 				<div class='col-sm-4'>
 				  <center>
-				  	<a href="Usuarios.html">
+				  	<a href="#" id="listUsers">
 					  <img class="img-responsive" src="img/iconquemsomos.png" id="iconhome">
 					</a>
 					<h4>LISTA MORADORES</h4>
@@ -95,6 +98,7 @@
 				<h5>@Copyright - todos os direitos reservados</h5>
 			</center>
 		</footer>
+<<<<<<< HEAD
 		<script>
 			
 			function openNav() {
@@ -150,5 +154,7 @@
 			}
 
 		</script>
+=======
+>>>>>>> da4d24418cbcda1e535305acf6ed520a7b9c37d6
 	</body>
 </html>
