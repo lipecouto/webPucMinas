@@ -56,22 +56,21 @@ $(document).ready(function(){
     });
 
 
-            $("#closeNav").on("click", function (event) {
-                document.getElementById("mySidenav").style.width = "0";
-                document.getElementById("main").style.marginLeft= "0";
-                document.getElementById("main").style.zIndex = "-1";
-                document.body.style.backgroundColor = "white";
-                document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
-                document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
-            
-            });
+    $("#closeNav").on("click", function (event) {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("main").style.zIndex = "-1";
+        document.body.style.backgroundColor = "white";
+        document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
+        document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
+        });
 
     //Enviar Dados
     $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
         alert("Botao funcionando")
         enviar();
     });
-});
+
 
 function closeNav() {
           document.getElementById("mySidenav").style.width = "0";
@@ -107,30 +106,30 @@ function enviar(){
         }) 
 }    
 
-function listaUsers(){
-    $.getJSON("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
-        console.log(data[1].Nome);
-    });
-}
-
-function SucessCallback(result) {
-     alert('Resultado: ' + result.Message + ' <br /> Descrição: ' + result.Description);
-}
-
-function FailureCallBack(result){
-     alert(result.status + ' ' + result.statusText);
-} 
-
-function passAtivo(password, passValidate){
-
-    if(password != passValidate){
-        alert("As senhas não conferem favor verificar");
-        $("#alerta").css("display","true"); 
-        $("#btncadastrar").css("display","none");
-    }
-    else {
-       $("#btncadastrar").css("display","true"); 
-       $("#alerta").css("display", "none"); 
+    function listaUsers(){
+        $.getJSON("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
+            console.log(data[1].Nome);
+        });
     }
 
-}  
+    function SucessCallback(result) {
+        alert('Resultado: ' + result.Message + ' <br /> Descrição: ' + result.Description);
+    }
+
+    function FailureCallBack(result){
+         alert(result.status + ' ' + result.statusText);
+    } 
+
+    function passAtivo(password, passValidate){
+
+        if(password != passValidate){
+            alert("As senhas não conferem favor verificar");
+            $("#alerta").css("display","true"); 
+            $("#btncadastrar").css("display","inline");
+        }
+        else {
+            $("#btncadastrar").css("display","inline"); 
+            $("#alerta").css("display", "none"); 
+        }
+    }  
+});
