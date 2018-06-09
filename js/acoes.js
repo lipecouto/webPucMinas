@@ -67,7 +67,7 @@ $(document).ready(function(){
 
     //Enviar Dados
     $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
-        alert("Botao funcionando")
+        alert("Botao funcionando");
         enviar();
     });
 
