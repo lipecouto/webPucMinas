@@ -67,8 +67,25 @@ $(document).ready(function(){
 
     //Enviar Dados
     $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
-        alert("Botao funcionando");
-        enviar();
+       alert("Entrou na funcao enviar");
+        usuario = {
+            Nome: $("#fullname").val(),
+            CPF:  $("#personid").val(),
+            Login: $("#userLogin").val(),
+            Senha: $("#userPass").val(),
+            Email:  $("#userEmail").val(),
+            Telefone: $("#userTel").val() 
+        }; 
+       alert("Agora returna "+usuario);
+        $.ajax({
+            type: "POST",
+            url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
+            dataType: "json",
+            data: usuario,     
+            success: function(data){
+                alert(data.msg+"msg teste 1");
+            } 
+        });  
     });
 
 
@@ -83,29 +100,6 @@ function closeNav() {
 
 
 //Enviar dados por requisição assincrona
-function enviar(){
-    alert("Entrou na funcao enviar");
-    usuario = {
-            Nome: $("#fullname").val(),
-            CPF:  $("#personid").val(),
-            Login: $("#userLogin").val(),
-            Senha: $("#userPass").val(),
-            Email:  $("#userEmail").val(),
-            Telefone: $("#userTel").val() 
-        }; 
-    alert("Agora returna "+usuario);
-        $.ajax({
-            type: "POST",
-            url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
-            dataType: "json",
-            data: usuario,     
-            success: function(data){
-                alert(data.msg+"msg teste 1");
-            } 
-               
-        }) 
-}    
-
     function listaUsers(){
         $.getJSON("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
             console.log(data[1].Nome);
