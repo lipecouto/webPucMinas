@@ -48,6 +48,13 @@ $(document).ready(function(){
              });    
          });
 
+        $("#count").click(function(){
+             $("#lowbody").load("Contas-min.html", function(event){
+               closeNav();
+               listaUsers();
+             });    
+         });
+
         $("#fatura").click(function(){
              $("#lowbody").load("Faturas-min.html", function(event){
                closeNav();
