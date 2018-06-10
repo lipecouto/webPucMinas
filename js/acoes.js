@@ -48,6 +48,13 @@ $(document).ready(function(){
              });    
          });
 
+        $("#fatura").click(function(){
+             $("#lowbody").load("Faturas-min.html", function(event){
+               closeNav();
+               listaUsers();
+             });    
+         });
+
      //aboutus
         $("#aboutus").click(function(){
              $("#lowbody").load("Sobre.html");
