@@ -69,6 +69,20 @@ $(document).ready(function(){
              });    
          });
 
+        $("#newSindico").click(function(){
+             $("#lowbody").load("CriarVotacao-min.html", function(event){
+               closeNav();
+               //listaUsers();
+             });    
+         });
+
+        $("#votar").click(function(){
+             $("#lowbody").load("Votacao-min.html", function(event){
+               closeNav();
+               //listaUsers();
+             });    
+         });
+
      //aboutus
         $("#aboutus").click(function(){
              $("#lowbody").load("Sobre.html");
