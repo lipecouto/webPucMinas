@@ -44,21 +44,28 @@ $(document).ready(function(){
         $("#users").click(function(){
              $("#lowbody").load("Usuarios-min.html", function(event){
                closeNav();
-               listaUsers();
+               //listaUsers();
              });    
          });
 
         $("#count").click(function(){
              $("#lowbody").load("Contas-min.html", function(event){
                closeNav();
-               listaUsers();
+               //listaUsers();
              });    
          });
 
         $("#fatura").click(function(){
              $("#lowbody").load("Faturas-min.html", function(event){
                closeNav();
-               listaUsers();
+               //listaUsers();
+             });    
+         });
+
+        $("#newfatura").click(function(){
+             $("#lowbody").load("CadastrarFatura-min.html", function(event){
+               closeNav();
+               //listaUsers();
              });    
          });
 
