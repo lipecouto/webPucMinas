@@ -101,9 +101,9 @@ $(document).ready(function(){
         });
 
     //Enviar Dados
-    $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
+ $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
        alert("Entrou na funcao enviar");
-        usuario = {
+        data = {
             Nome: $("#fullname").val(),
             CPF:  $("#personid").val(),
             Login: $("#userLogin").val(),
@@ -111,18 +111,20 @@ $(document).ready(function(){
             Email:  $("#userEmail").val(),
             Telefone: $("#userTel").val() 
         }; 
-       alert("Agora returna "+usuario);
+       
+        var usuario = JSON.stringify(data);
+        alert(usuario);
         $.ajax({
             type: "POST",
             url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
+            data: {usuario},     
+            contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: usuario,     
             success: function(data){
                 alert(data.msg+"msg teste 1");
             } 
         });  
     });
-
 
 function closeNav() {
           document.getElementById("mySidenav").style.width = "0";
