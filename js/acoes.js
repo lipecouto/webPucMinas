@@ -29,7 +29,7 @@ $(document).ready(function(){
 
             //carrega  os dados dos condominios
                 $.getJSON('./php/service.php?acao=consultaCondominio', function (dados){
-                    alert(testeJson)
+                    alert(testeJson);
                     if (dados.length > 0){    
                     var option = '<option>Selecione um condomínio </option>';
                     $.each(dados, function(i, obj){
