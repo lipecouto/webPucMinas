@@ -17,7 +17,7 @@
 				$n = (isset($_POST['nome']))? $_POST['nome']: '';
 				$c = (isset($_POST['cpf']))? $_POST['cpf']: '';
 				$l = (isset($_POST['login']))? $_POST['login']: '';
-				$s = (isset($_POST['senha']))? $_POST['senha']; '';
+				$s = (isset($_POST['senha']))? $_POST['senha']: '';
 				$e = (isset($_POST['email']))? $_POST['email']: '';
 				$tel = (isset($_POST['telefone']))? $_POST['telefone']: '';
 				$tu = (isset($_POST['tipoUsuario']))? $_POST['tipoUsuario']: '';
