@@ -84,7 +84,7 @@
 	    	$querysql = "SELECT razaosocial, id_condominio FROM condominio";
 	    	$exe = $pdo->prepare($querysql);
 	    	$exe->execute();
-	    	echo("Chegou aqui_2");
+	    	 
 	    	if(!$exe){
 	    		echo("Deu erro =(");
 	    	}
