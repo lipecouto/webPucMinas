@@ -24,7 +24,7 @@ $(document).ready(function(){
                   $.getJSON('/php/service.php?acao=consultaCondominio', function (dados){
                    
                     if (dados.length > 0){    
-                    var selectbox = $('#$getCondominio');
+                    var selectbox = $('#getCondominio');
                     selectbox.find('option').remove();
                     $.each(dados, function(i, obj){
                        $('<option').val(dados.id_condominio).text(dados.razaosocial).appendTo(options);
