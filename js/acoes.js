@@ -26,7 +26,7 @@ $(document).ready(function(){
                     if (dados.length > 0){    
                     var option = '<option>Selecione um condomínio </option>';
                     $.each(dados, function(i, obj){
-                        option += '<option value="'+obj[0].id_condominio+'">'+obj[0].razaosocial+'</option>';
+                        option += '<option value="'+obj.id_condominio[0]+'">'+obj.razaosocial[0]+'</option>';
                         })
                     $('#getCondominio').html(option).show();
                      
