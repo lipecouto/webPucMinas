@@ -21,17 +21,20 @@ $(document).ready(function(){
                  closeNav();
 
                 //carrega  os dados dos condominios
-                  $.getJSON('/php/service.php?acao=consultaCondominio', function (dados){
-                   
-                    if (dados.length > 0){    
-                    var selectbox = $('#getCondominio');
-                    selectbox.find('option').remove();
-                    $.each(dados, function(i, data){
-                        $('<option>').val(data.id_condomio).text(data.razaosocial).appendTo(selectbox);
-                        })
-                    }else{
-                        alert("erro");
-                        Reset();
+                $.ajax({
+                    type: "get",
+                    url: "/php/service.php?acao=consultaCondominio",
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    success: function (obj) {
+                        if (obj != null) {
+                            var data = obj.data;
+                            var selectbox = $('#getCondominio');
+                            selectbox.find('option').remove();
+                            $.each(data, function (i, d) {
+                                $('<option>').val(d.id_condomio).text(d.razaosocial).appendTo(selectbox);
+                            });
+                        }
                     }
                 });
 
