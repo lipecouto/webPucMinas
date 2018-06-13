@@ -85,9 +85,8 @@
 	    	$exe = $pdo->prepare($querysql);
 	    	$exe->execute();
 	    	sleep(1); 
-	    	while ($linha = $exe->fetchAll(PDO::FETCH_ASSOC)){
-	    		echo json_encode($linha);
-	    		}
+	    	$linha = $exe->fetchAll(PDO::FETCH_ASSOC))
+	    	echo json_encode($linha);
 	    }
 	    catch (Exception $e){
         	echo 'Erro: '.$e->getMessage();
