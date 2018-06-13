@@ -6,7 +6,7 @@
 		<h2>CADASTRAR NOVO USUARIO</h2>
 		<h4>Dados para cadastro</h4>
 	</div>
-	<form>
+	<form id="cadatroUser">
 		<div class="form-group">
 			<div class="input-group">
 				<label for="fullname">Nome Completo</label>
@@ -61,7 +61,10 @@
 				<label for="pwd">Confirmar senha</label>
 				<input type="password" class="form-control" id="userPass2" required>
 			</div>
-			<br><br>	
+			<br><br>
+			<div class="alert alert-success" role="alert" id="alertOk">
+			 
+			</div>			
 			<div class="alert alert-warning" role="alert" id="alerta">
 			  A confirmação da senha não confere com a senha digitada!
 			</div>		

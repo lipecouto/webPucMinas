@@ -5,7 +5,9 @@ $(document).ready(function(){
      $("#listUsers").click(function(){       
         $("#lowbody").load("Usuarios-min.html", function(){});
         });
-     
+
+     $("#alertOK").css('display', 'none');
+
      $("#openNav").on("click", function(event) {
          document.getElementById("mySidenav").style.width = "250px";
          document.getElementById("main").style.marginLeft = "250px";
@@ -102,28 +104,19 @@ $(document).ready(function(){
 
     //Enviar Dados
  $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
-       alert("Entrou na funcao enviar");
-        data = {
-            Nome: $("#fullname").val(),
-            CPF:  $("#personid").val(),
-            Login: $("#userLogin").val(),
-            Senha: $("#userPass").val(),
-            Email:  $("#userEmail").val(),
-            Telefone: $("#userTel").val() 
-        }; 
-       
-        var usuario = JSON.stringify(data);
-        alert(usuario);
+        var dados = $('#cadatroUser').serialize();
         $.ajax({
-            type: "POST",
-            url: "http://apicondominio.azurewebsites.net/api/usuario/PostUsuario",
-            data: {usuario},     
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function(data){
-                alert(data.msg+"msg teste 1");
-            } 
-        });  
+                    type : 'POST',
+                    url  : './php/service.php',
+                    data : dados,
+                    dataType: 'json',
+                    success :  function(response){
+                        $('#alertOk').css('display', 'block')
+                            .html('Dados cadastrados com sucesso');
+                    }
+                });
+
+                return false;
     });
 
 function closeNav() {
