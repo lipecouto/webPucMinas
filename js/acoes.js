@@ -24,12 +24,11 @@ $(document).ready(function(){
                   $.getJSON('/php/service.php?acao=consultaCondominio', function (dados){
                    
                     if (dados.length > 0){    
-                    var option = '<option>Selecione um condomínio </option>';
+                    var selectbox = $('#$getCondominio');
+                    selectbox.find('option').remove();
                     $.each(dados, function(i, obj){
-                        option += '<option value="'+obj.id_condominio+'">'+obj.razaosocial+'</option>';
+                       $('<option').val(dados.id_condominio).text(dados.razaosocial).appendTo(options);
                         })
-                    $('#getCondominio').html(option).show();
-                     
                     }else{
                         alert("erro");
                         Reset();
