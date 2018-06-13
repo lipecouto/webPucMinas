@@ -84,7 +84,10 @@
 	    	$querysql = "SELECT razaosocial, id_condominio FROM condominio";
 	    	$exe = $pdo->prepare($querysql);
 	    	$exe->execute();
-	    	echo("Chegou aqui");
+	    	echo("Chegou aqui_2");
+	    	if(!$exe){
+	    		print_r($pdo->errorInfo());
+	    	}
 	    	while ($linha = $exe->fetch(PDO::FETCH_ASSOC)) {
 	    		echo ("Tudo Certo".$linha);
 	    		echo json_encode($linha);
