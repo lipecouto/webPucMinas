@@ -87,6 +87,8 @@
 	    	 
 	    	if(!$exe){
 	    		echo("Deu erro =(");
+	    	}else{
+	    		echo("não deu erro");
 	    	}
 	    	while ($linha = $exe->fetch(PDO::FETCH_ASSOC)) {
 	    		echo ("Tudo Certo".$linha);
