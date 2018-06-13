@@ -86,6 +86,7 @@
     	$exe->execute();
     	sleep(1);
     	while ($linha = $exe->fetch(PDO::FETCH_ASSOC)) {
+    		echo ("Tudo Certo".$linha);
     		echo json_encode($linha);
     	}
     	$pdo = null;
