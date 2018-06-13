@@ -38,10 +38,8 @@ $(document).ready(function(){
                         if (obj != null) {
                             alert("Ok")
                             var data = obj.data;
-                            var selectbox = $('#getCondominio');
-                            selectbox.find('option').remove();
                             $.each(data, function (i, d) {
-                                $('<option>').val(d.id_condomio).text(d.razaosocial).appendTo(selectbox);
+                                $('<option>').val(d.id_condomio).text(d.razaosocial).appendTo('#getCondominio');
                             });
                         }else
                         {
