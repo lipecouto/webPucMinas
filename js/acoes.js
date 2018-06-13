@@ -27,7 +27,7 @@ $(document).ready(function(){
                     var selectbox = $('#getCondominio');
                     selectbox.find('option').remove();
                     $.each(dados, function(i, data){
-                        $('<option>').val(data.idcondomio).text(data.razaosocial).appendTo(selectbox);
+                        $('<option>').val(data.id_condomio).text(data.razaosocial).appendTo(selectbox);
                         })
                     }else{
                         alert("erro");
