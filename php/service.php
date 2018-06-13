@@ -79,17 +79,22 @@
 	}
 
 	function getCondominio(){
-		$pdo = Conectar();
-    	$querysql = "SELECT razaosocial, id_condominio FROM condominio";
-    	$exe = $pdo->prepare($querysql);
-    	$exe->bindValue(1, $nomecond);
-    	$exe->execute();
-    	echo("Chegou aqui");
-    	while ($linha = $exe->fetch(PDO::FETCH_ASSOC)) {
-    		echo ("Tudo Certo".$linha);
-    		echo json_encode($linha);
-    	}
-    	$pdo = null;
+		try{
+			$pdo = Conectar();
+	    	$querysql = "SELECT razaosocial, id_condominio FROM condominio";
+	    	$exe = $pdo->prepare($querysql);
+	    	$exe->execute();
+	    	echo("Chegou aqui");
+	    	while ($linha = $exe->fetch(PDO::FETCH_ASSOC)) {
+	    		echo ("Tudo Certo".$linha);
+	    		echo json_encode($linha);
+	    		}
+	    }
+	    catch (Exception $e){
+        	echo 'Erro: '.$e->getMessage();
+        	return null;
+    	}			
+    
 	}
 
 	function getApto($condominio){
