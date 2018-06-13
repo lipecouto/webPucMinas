@@ -21,8 +21,7 @@ $(document).ready(function(){
                  closeNav();
 
                 //carrega  os dados dos condominios
-                alert("testeOK");
-                $.getJSON('/php/service.php?acao=consultaCondominio', function (dados){
+                  $.getJSON('/php/service.php?acao=consultaCondominio', function (dados){
                     alert("testeOK");
                     if (dados.length > 0){    
                     var option = '<option>Selecione um condomínio </option>';

@@ -41,10 +41,9 @@
 			default:
 				 echo "Serviço não existe";
 				break;
-			}
 		}
-
-	}else{
+	}
+	else{
 
 		echo "Sem ação definida!";
 	}
