@@ -20,16 +20,9 @@ $(document).ready(function(){
              $("#lowbody").load("CadastroUsuario-min.html", function(event){
                  closeNav();
 
-                 $("#alerta").css("display", "none"); 
-                 $("#userPass2").change(function(event){
-                    var passVal = $("#userPass2").val()
-                    var pass = $("#userPass").val()
-                    passAtivo(pass, passVal);
-                 });
-
-            //carrega  os dados dos condominios
+                //carrega  os dados dos condominios
                 $.getJSON('./php/service.php?acao=consultaCondominio', function (dados){
-                    alert(testeJson);
+                    alert("testeOK");
                     if (dados.length > 0){    
                     var option = '<option>Selecione um condomínio </option>';
                     $.each(dados, function(i, obj){
@@ -39,10 +32,18 @@ $(document).ready(function(){
                      
                     }else{
                         Reset();
-                        $('#alerta').html().show();
-                        $('#alerta').html('<span class="mensagem">Erro!</span>');
+                       alert("erro");
                     }
-                })
+                });
+
+                 $("#alerta").css("display", "none"); 
+                 $("#userPass2").change(function(event){
+                    var passVal = $("#userPass2").val()
+                    var pass = $("#userPass").val()
+                    passAtivo(pass, passVal);
+                 });
+
+           
             //Agora carrega os dados do apartamento selecionado
                 $('#getCondominio option:selected').each(function(event){
                     var id_cond = $(this).val();
