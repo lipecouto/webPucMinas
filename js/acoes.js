@@ -30,19 +30,24 @@ $(document).ready(function(){
 
               //carrega  os dados dos condominios depois do load
                 $.ajax({
-                    type: "POST",
+                     type: "POST",
                     url: "/php/service.php?acao=consultaCondominio",
                     dataType: 'json',
                     contentType: "application/json; charset=utf-8",
                     success: function (obj) {
                         if (obj != null) {
+                            alert("Ok")
                             var data = obj.data;
                             var selectbox = $('#getCondominio');
                             selectbox.find('option').remove();
                             $.each(data, function (i, d) {
                                 $('<option>').val(d.id_condomio).text(d.razaosocial).appendTo(selectbox);
                             });
+                        }else
+                        {
+                            alert("error");
                         }
+
                     }
                 });
 
