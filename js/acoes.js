@@ -41,6 +41,7 @@ $(document).ready(function(){
                             $.each(data, function (i, d) {
                                 alert(d.id_condominio);
                                 alert(d.razaosocial);
+                                
                                 $('<option>').val(d.id_condomio).text(d.razaosocial).appendTo('#getCondominio');
                             });
                         }else
