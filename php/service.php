@@ -4,7 +4,7 @@
 
 	
 
-	if(!empty($_GET['acao'];)){
+	if(!empty($_GET['acao'])){
 
 		//Guardando a ação solicitada
 		$acao = $_GET['acao'];

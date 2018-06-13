@@ -32,8 +32,8 @@ $(document).ready(function(){
                     $('#getCondominio').html(option).show();
                      
                     }else{
+                        alert("erro");
                         Reset();
-                       alert("erro");
                     }
                 });
 
