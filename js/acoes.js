@@ -29,28 +29,12 @@ $(document).ready(function(){
             });
 
               //carrega  os dados dos condominios depois do load
-                $.ajax({
-                     type: "POST",
-                    url: "/php/service.php?acao=consultaCondominio",
-                    dataType: 'json',
-                    contentType: "application/json; charset=utf-8",
-                    success: function (obj) {
-                        if (obj != null) {
-                            alert("Ok")
-                            var data = obj.data;
-                            $.each(data, function (i, d) {
-                                alert(d.id_condominio);
-                                alert(d.razaosocial);
-                                
-                                $('<option>').val(d.id_condomio).text(d.razaosocial).appendTo('#getCondominio');
-                            });
-                        }else
-                        {
-                            alert("error");
-                        }
 
-                    }
-                });
+              $.getJSON('/php/service.php?acao=consultaCondominio', function(data){
+                    preencheSelect(data);
+              });
+               
+
 
                 //Agora carrega os dados do apartamento selecionado
                 $('#getCondominio option:selected').each(function(event){
@@ -168,8 +152,13 @@ function listaUsers(){
         });
     }
 
-
-
+function preencheSelect(data){
+    alert(data[0].razaosocial);
+    $.each(data, function(i, item){
+        $('<option>').val(item.id_condomio).text(item.razaosocial).appendTo('#getCondominio'); 
+    });
+    
+}
 
 function passAtivo(password, passValidate){
 
