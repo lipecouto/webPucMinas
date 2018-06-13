@@ -84,7 +84,7 @@
     	$exe = $pdo->prepare($querysql);
     	$exe->bindValue(1, $nomecond);
     	$exe->execute();
-    	sleep(1);
+    	echo("Chegou aqui");
     	while ($linha = $exe->fetch(PDO::FETCH_ASSOC)) {
     		echo ("Tudo Certo".$linha);
     		echo json_encode($linha);
