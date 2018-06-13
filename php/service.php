@@ -30,7 +30,7 @@
 			
 			case 'consultaCondominio':
 				//$resultado = $pdo->select("SELECT * FROM CONDOMINIO WHERE RAZAOSOCIAL LIKE '$parametro%' ORDER BY RAZAOSOCIAL ASC");
-			    getCondominio();
+			    echo (getCondominio());
 				break;
 
 			case 'consultaAp':
@@ -84,7 +84,7 @@
 	    	$querysql = "SELECT razaosocial, id_condominio FROM condominio";
 	    	$exe = $pdo->prepare($querysql);
 	    	$exe->execute();
-	    	 
+	    	sleep(1); 
 	    	if(!$exe){
 	    		echo("Deu erro =(");
 	    	}else{
@@ -92,14 +92,15 @@
 	    	}
 	    	while ($linha = $exe->fetch(PDO::FETCH_ASSOC)) {
 	    		echo ("Tudo Certo".$linha);
-	    		echo json_encode($linha);
+	    		return json_encode($linha);
 	    		}
 	    }
 	    catch (Exception $e){
         	echo 'Erro: '.$e->getMessage();
         	return null;
-    	}			
-    
+    	}
+
+    	$pdo = null;
 	}
 
 	function getApto($condominio){
