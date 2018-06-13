@@ -29,6 +29,7 @@ $(document).ready(function(){
 
             //carrega  os dados dos condominios
                 $.getJSON('./php/service.php?acao=consultaCondominio', function (dados){
+                    alert(testeJson)
                     if (dados.length > 0){    
                     var option = '<option>Selecione um condomínio </option>';
                     $.each(dados, function(i, obj){
@@ -49,7 +50,7 @@ $(document).ready(function(){
                         if (dados.length > 0){    
                             var option = '<option>Selecione um Ap de acordo com seu Bloco</option>';
                             $.each(dados, function(i, obj){
-                                option += '<option value="'+obj.id_apartamento+'/'+obj.id_bloco+'"> Bloco: 'obj.id_bloco+'  Apto:'+obj.id_apartamento+'</option>';
+                                option += '<option value="'+obj.id_apartamento+'/'+obj.id_bloco+'"> Bloco: '+obj.id_bloco+'  Apto:'+obj.id_apartamento+'</option>';
                             })
                         $('#getApartamento').html(option).show();
                      
