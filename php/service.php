@@ -81,12 +81,13 @@
 	function getCondominio(){
 		try{
 			$pdo = Conectar();
-	    	$querysql = "SELECT razaosocial, id_condominio FROM condominio";
+	    	$querysql = "SELECT razaosocial, id_condominio FROM CONDOMINIO";
 	    	$exe = $pdo->prepare($querysql);
 	    	$exe->execute();
 	    	sleep(1); 
 	    	$linha = $exe->fetchAll(PDO::FETCH_ASSOC);
-	    	echo json_encode($linha);
+	    	$json = json_encode($linha);
+	    	echo ($json);
 	    }
 	    catch (Exception $e){
         	echo 'Erro: '.$e->getMessage();
