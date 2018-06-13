@@ -21,7 +21,8 @@ $(document).ready(function(){
                  closeNav();
 
                 //carrega  os dados dos condominios
-                $.getJSON('./php/service.php?acao=consultaCondominio', function (dados){
+                alert("testeOK");
+                $.getJSON('/php/service.php?acao=consultaCondominio', function (dados){
                     alert("testeOK");
                     if (dados.length > 0){    
                     var option = '<option>Selecione um condomínio </option>';
@@ -47,7 +48,7 @@ $(document).ready(function(){
             //Agora carrega os dados do apartamento selecionado
                 $('#getCondominio option:selected').each(function(event){
                     var id_cond = $(this).val();
-                    $.getJSON('./php/service.php?acao=consultaAp&idcondomio='+id_cond, function (dados){
+                    $.getJSON('/php/service.php?acao=consultaAp&idcondomio='+id_cond, function (dados){
                         if (dados.length > 0){    
                             var option = '<option>Selecione um Ap de acordo com seu Bloco</option>';
                             $.each(dados, function(i, obj){
