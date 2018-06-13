@@ -20,7 +20,15 @@ $(document).ready(function(){
              $("#lowbody").load("CadastroUsuario-min.html", function(event){
                  closeNav();
 
-                //carrega  os dados dos condominios
+                 $("#alerta").css("display", "none"); 
+                 $("#userPass2").change(function(event){
+                    var passVal = $("#userPass2").val()
+                    var pass = $("#userPass").val()
+                    passAtivo(pass, passVal);
+                 });
+            });
+
+              //carrega  os dados dos condominios
                 $.ajax({
                     type: "get",
                     url: "/php/service.php?acao=consultaCondominio",
@@ -37,16 +45,8 @@ $(document).ready(function(){
                         }
                     }
                 });
-
-                 $("#alerta").css("display", "none"); 
-                 $("#userPass2").change(function(event){
-                    var passVal = $("#userPass2").val()
-                    var pass = $("#userPass").val()
-                    passAtivo(pass, passVal);
-                 });
-
-           
-            //Agora carrega os dados do apartamento selecionado
+                
+                //Agora carrega os dados do apartamento selecionado
                 $('#getCondominio option:selected').each(function(event){
                     var id_cond = $(this).val();
                     $.getJSON('/php/service.php?acao=consultaAp&idcondomio='+id_cond, function (dados){
@@ -65,8 +65,6 @@ $(document).ready(function(){
                     });
                 });
 
-
-            });
          
         });
 
