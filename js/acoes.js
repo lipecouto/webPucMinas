@@ -26,10 +26,7 @@ $(document).ready(function(){
                     if (dados.length > 0){    
                     var option = '<option>Selecione um condomínio </option>';
                     $.each(dados, function(i, obj){
-                        alert(obj.id_condominio[0]);
-                        alert(obj.id_condominio);
-                        alert(obj.razaosocial);
-                        option += '<option value="'+obj.id_condominio[0]+'">'+obj.razaosocial[0]+'</option>';
+                        option += '<option value="'+obj.id_condominio+'">'+obj.razaosocial+'</option>';
                         })
                     $('#getCondominio').html(option).show();
                      
