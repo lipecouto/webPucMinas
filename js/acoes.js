@@ -28,9 +28,9 @@ $(document).ready(function(){
                  });
             });
 
-              //carrega  os dados dos condominios
+              //carrega  os dados dos condominios depois do load
                 $.ajax({
-                    type: "get",
+                    type: "POST",
                     url: "/php/service.php?acao=consultaCondominio",
                     dataType: 'json',
                     contentType: "application/json; charset=utf-8",
@@ -45,7 +45,7 @@ $(document).ready(function(){
                         }
                     }
                 });
-                
+
                 //Agora carrega os dados do apartamento selecionado
                 $('#getCondominio option:selected').each(function(event){
                     var id_cond = $(this).val();
