@@ -86,7 +86,7 @@
 	    	$exe->execute();
 	    	echo("Chegou aqui_2");
 	    	if(!$exe){
-	    		echo($pdo->errorInfo());
+	    		echo("Deu erro =(");
 	    	}
 	    	while ($linha = $exe->fetch(PDO::FETCH_ASSOC)) {
 	    		echo ("Tudo Certo".$linha);
