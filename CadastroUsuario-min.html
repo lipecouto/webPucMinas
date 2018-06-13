@@ -30,11 +30,13 @@
 			</div>
 		    <div class="input-group">	
 				<label for="condominio">Selecione o condominio</label>
-				<select class="form-control" id="condominio"></select>	
+				<select class="form-control" id="getCondominio">
+					<option>Selecione seu condomínio</option>
+				</select>	
 			</div>
 		    <div class="input-group">	
 				<label for="apartamento">Selecione Apartamento</label>
-				<select class="form-control" id="apartamento"></select>	
+				<select class="form-control" id="getApartamento"></select>	
 			</div>
       		<div class="input-group">	
 				<label for="ESindico">É Sindico?</label>
@@ -65,7 +67,7 @@
 			<div class="alert alert-success" role="alert" id="alertOk">
 			 
 			</div>			
-			<div class="alert alert-warning" role="alert" id="alerta">
+			<div class="alert alert-warning" role="alert" id="alerta" hidden="true">
 			  A confirmação da senha não confere com a senha digitada!
 			</div>		
 		</div>

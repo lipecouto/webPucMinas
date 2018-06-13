@@ -5,9 +5,10 @@ $(document).ready(function(){
      $("#listUsers").click(function(){       
         $("#lowbody").load("Usuarios-min.html", function(){});
         });
-
+     //esconde botao alerta
      $("#alertOK").css('display', 'none');
 
+     //Ações quando abrir o menu lateral
      $("#openNav").on("click", function(event) {
          document.getElementById("mySidenav").style.width = "250px";
          document.getElementById("main").style.marginLeft = "250px";
@@ -17,13 +18,50 @@ $(document).ready(function(){
 
         $("#addUser").click(function(){
              $("#lowbody").load("CadastroUsuario-min.html", function(event){
-              closeNav();
-              $("#alerta").css("display", "none"); 
-              $("#userPass2").change(function(event){
-                 var passVal = $("#userPass2").val()
-                 var pass = $("#userPass").val()
-                 passAtivo(pass, passVal);
-              });
+                 closeNav();
+
+                 $("#alerta").css("display", "none"); 
+                 $("#userPass2").change(function(event){
+                    var passVal = $("#userPass2").val()
+                    var pass = $("#userPass").val()
+                    passAtivo(pass, passVal);
+                 });
+
+            //carrega  os dados dos condominios
+                $.getJSON('./php/service.php?acao=consultaCondominio', function (dados){
+                    if (dados.length > 0){    
+                    var option = '<option>Selecione um condomínio </option>';
+                    $.each(dados, function(i, obj){
+                        option += '<option value="'+obj.id_condominio+'">'+obj.razaosocial+'</option>';
+                        })
+                    $('#getCondominio').html(option).show();
+                     
+                    }else{
+                        Reset();
+                        $('#alerta').html().show();
+                        $('#alerta').html('<span class="mensagem">Erro!</span>');
+                    }
+                })
+            //Agora carrega os dados do apartamento selecionado
+                $('#getCondominio option:selected').each(function(event){
+                    var id_cond = $(this).val();
+                    $.getJSON('./php/service.php?acao=consultaAp&idcondomio='+id_cond, function (dados){
+                        if (dados.length > 0){    
+                            var option = '<option>Selecione um Ap de acordo com seu Bloco</option>';
+                            $.each(dados, function(i, obj){
+                                option += '<option value="'+obj.id_apartamento+'/'+obj.id_bloco+'"> Bloco: 'obj.id_bloco+'  Apto:'+obj.id_apartamento+'</option>';
+                            })
+                        $('#getApartamento').html(option).show();
+                     
+                        }else{
+                            Reset();
+                            $('#alerta').html().show();
+                            $('#alerta').html('<span class="mensagem">Erro!</span>');
+                        }
+                    });
+                });
+
+
             });
          
         });
@@ -92,7 +130,7 @@ $(document).ready(function(){
         });
     });
 
-
+    //Ações quando fecha o menu lateral
     $("#closeNav").on("click", function (event) {
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("main").style.marginLeft= "0";
@@ -100,24 +138,10 @@ $(document).ready(function(){
         document.body.style.backgroundColor = "white";
         document.getElementById("fullbody").style.backgroundColor = "rgba(0,0,0,0)";
         document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
-        });
-
-    //Enviar Dados
- $("#btncadastrar").on("click", function(event){ //event pega todas as ações do objeto que é passado no caso #btnEnviar
-        var dados = $('#cadatroUser').serialize();
-        $.ajax({
-                    type : 'POST',
-                    url  : './php/service.php',
-                    data : dados,
-                    dataType: 'json',
-                    success :  function(response){
-                        $('#alertOk').css('display', 'block')
-                            .html('Dados cadastrados com sucesso');
-                    }
-                });
-
-                return false;
     });
+
+   
+
 
 function closeNav() {
           document.getElementById("mySidenav").style.width = "0";
@@ -130,29 +154,22 @@ function closeNav() {
 
 
 //Enviar dados por requisição assincrona
-    function listaUsers(){
+function listaUsers(){
         $.getJSON("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
             console.log(data[1].Nome);
         });
     }
 
-    function SucessCallback(result) {
-        alert('Resultado: ' + result.Message + ' <br /> Descrição: ' + result.Description);
-    }
 
-    function FailureCallBack(result){
-         alert(result.status + ' ' + result.statusText);
-    } 
 
-    function passAtivo(password, passValidate){
+
+function passAtivo(password, passValidate){
 
         if(password != passValidate){
             alert("As senhas não conferem favor verificar");
-            $("#alerta").css("display","true"); 
-            $("#btncadastrar").css("display","inline");
+            $("#alerta").css("display","true");        
         }
         else {
-            $("#btncadastrar").css("display","inline"); 
             $("#alerta").css("display", "none"); 
         }
     }  
