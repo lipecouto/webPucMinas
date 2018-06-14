@@ -14,18 +14,18 @@
 		switch ($acao) {
 			case 'inserir':
 				//busca todas as variáveis;
-				$n = (isset($_POST['nome']))? $_POST['nome']: '';
-				$c = (isset($_POST['cpf']))? $_POST['cpf']: '';
-				$l = (isset($_POST['login']))? $_POST['login']: '';
-				$s = (isset($_POST['senha']))? $_POST['senha']: '';
-				$e = (isset($_POST['email']))? $_POST['email']: '';
-				$tel = (isset($_POST['telefone']))? $_POST['telefone']: '';
-				$tu = (isset($_POST['tipoUsuario']))? $_POST['tipoUsuario']: '';
-				$dt   = (isset($_POST['dtnasc']))? $_POST['dtnasc']: '';
-				$cond = (isset($_POST['idcondominio']))? $_POST['idcondominio']: '';
-				$ap      = (isset($_POST['idapto']))? $_POST['idapto']: '';
+				$n = (isset($_GET['nome']))? $_GET['nome']: '';
+				$c = (isset($_GET['cpf']))? $_GET['cpf']: '';
+				$l = (isset($_GET['login']))? $_GET['login']: '';
+				$s = (isset($_GET['senha']))? $_GET['senha']: '';
+				$e = (isset($_GET['email']))? $_GET['email']: '';
+				$tel = (isset($_GET['telefone']))? $_GET['telefone']: '';
+				$tu = (isset($_GET['tipoUsuario']))? $_GET['tipoUsuario']: '';
+				$dt   = (isset($_GET['dtnasc']))? $_GET['dtnasc']: '';
+				$cond = (isset($_GET['idcondominio']))? $_GET['idcondominio']: '';
+				$ap      = (isset($_GET['idapto']))? $_GET['idapto']: '';
 				//chama a função inserir usuário
-				insertUser($n, $c, $l, $s, $e, $tel, $tu, $dt, $cond, $ap);
+				echo(insertUser($n, $c, $l, $s, $e, $tel, $tu, $dt, $cond, $ap));
 				break;
 			
 			case 'consultaCondominio':
@@ -56,6 +56,7 @@
 		if (empty($nome) || empty($email) || empty($assunto) || empty($msg)):
         	$array  = array('tipo' => 'alert alert-danger', 'mensagem' => 'Preencher todo os campos obrigatórios(*)!');
         	echo json_encode($array);
+        	return "falha";
     	else:	
 			$pdo = conectar();
 			$insertsql = "insert into USUARIO(nome, cpf, login, senha, email, tipoUsuario, 
@@ -73,9 +74,10 @@
         	$stm->bindValue(9, $idcondominio, PDO::PARAM_INT);
         	$stm->bindValue(10, $idapto, PDO::PARAM_INT);
     		$stm->execute();
-
+    		return "ok";
     	endif;
     	$pdo = null;
+
 	}
 
 	function getCondominio(){

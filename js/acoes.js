@@ -15,7 +15,21 @@ $(document).ready(function(){
             preencheSelectAp(data);
         });
      });
-
+    
+    $("#btncadastrar").on("click", function(event){
+        var nomeusu = $("#fullname").val();
+        var cpfusu = $("#personid").val();
+        var loginusu = $("#userLogin").val();
+        var senhausu = $("#userPass").val();
+        var emailusu = $("#userEmail").val();
+        var telefoneusu = $("#userTel").val();
+        var tipusu = $("#ESindicos").val();
+        var dtnascusu = $("#dateborn").val();
+        var idcondusu = $("#getCondominio").val();
+        var idapusu = $("#getApartamento").val();
+           
+        cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcondusu, idapusu);
+    });
 
 
      //Ações quando abrir o menu lateral
@@ -132,12 +146,7 @@ function closeNav() {
       }
 
 
-//Enviar dados por requisição assincrona
-function listaUsers(){
-        $.getJSON("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
-            console.log(data[1].Nome);
-        });
-    }
+ 
 
 function preencheSelectCondminio(data){
     $.each(data, function(i, item){
@@ -167,5 +176,23 @@ function passAtivo(password, passValidate){
         else {
             $("#alerta").css("display", "none"); 
         }
-    }  
+    }
+
+function cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcondusu, idapusu){
+
+        $.ajax({
+            method: "POST",
+            url: "/php/service.php?acao=inserir",
+            data: {nome : nomeusu, cpf : cpfusu, login : loginusu, senha : senhausu, email : emailusu, telefone : telefoneusu, tipoUsuario : tipusu,
+             dtnasc :  dtnascusu, idcondominio : idcondusu, idapto : idapusu} 
+        })
+        .done(function(msg){
+            if(msg == "ok"){
+                alert("Inserido com sucesso");
+            }else{
+                alert("Erro ao processar sua solicitação");
+            }
+        });
+}      
+
 });
