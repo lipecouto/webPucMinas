@@ -11,7 +11,6 @@ $(document).ready(function(){
       //Agora carrega os dados do apartamento selecionado
     $("#getCondominio").on("change", function(event){
         var id_cond = $("#getCondominio").val();
-        alert(id_cond);
         $.getJSON('/php/service.php?acao=consultaAp&idcondomio='+id_cond, function (data){
             preencheSelectAp(data);
         });
@@ -148,10 +147,15 @@ function preencheSelectCondminio(data){
 }
 
 function preencheSelectAp(data){
+    alert("Entrou na função");
+    if(data != null){}
     $.each(data, function(i, item){
-        $('<option>').val(item.id_condomio+"/"+item.id_bloco+"/"+item.id_apartamento).text("Bloco"+item.id_bloco+" Apto"+item.id_apartamento).appendTo('#getApartamento'); 
+        $('<option>').val(item.id_condominio+"/"+item.id_bloco+"/"+item.id_apartamento).text("Bloco"+item.id_bloco+" Apto"+item.id_apartamento).appendTo('#getApartamento'); 
     });
-    
+    }
+    else{
+        alert("data esta vazio");
+    }
 }
 
 function passAtivo(password, passValidate){
