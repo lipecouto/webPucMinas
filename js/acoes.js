@@ -142,7 +142,7 @@ function listaUsers(){
 
 function preencheSelectCondminio(data){
     $.each(data, function(i, item){
-        $('<option>').val(item.id_condomio).text(item.razaosocial).appendTo('#getCondominio'); 
+        $('<option>').val(item.id_condominio).text(item.razaosocial).appendTo('#getCondominio'); 
     });
     
 }
