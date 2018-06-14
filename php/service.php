@@ -53,10 +53,8 @@
 
 		$senhacode = base64_encode($senha);
 		
-		if (empty($nome) || empty($email) || empty($assunto) || empty($msg)):
-        	$array  = array('tipo' => 'alert alert-danger', 'mensagem' => 'Preencher todo os campos obrigatórios(*)!');
-        	echo json_encode($array);
-        	return "falha";
+		if (empty($nome) || empty($cpf) || empty($senha) || empty($email)):
+        	return "falha, campos pendentes";
     	else:	
 			$pdo = conectar();
 			$insertsql = "insert into USUARIO(nome, cpf, login, senha, email, tipoUsuario, 
