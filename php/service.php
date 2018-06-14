@@ -35,7 +35,7 @@
 
 			case 'consultaAp':
 				$cond = (isset($_POST['idcondominio']))? $_POST['idcondominio']: '';
-				echo($cond."ppppppp");
+				echo("ppppppp");
 			    echo (getApto($cond));   
 				break;
 
