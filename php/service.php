@@ -104,7 +104,7 @@
     	$exe->bindValue(1, $nomecond);
     	$exe->execute();
     	sleep(1);
-    	$linha = $exe->fetchALL(PDO::FETCH_ASSOC)
+    	$linha = $exe->fetchALL(PDO::FETCH_ASSOC);
     	$json = json_encode($linha);
     	echo ($json);
     	$pdo = null;
