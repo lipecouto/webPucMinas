@@ -49,30 +49,36 @@
 	}
 
 	function insertUser($nome, $cpf, $login, $senha, $email, $telefone, $tipoUsuario, $dtnasc, $idcondminio, $idapto){
-		echo($idapto);
+		
+		$id_apto = (explode('/', $idapto, 1));
+		echo($id_apto);
 
 		$senhacode = base64_encode($senha);
 		
 		if (empty($nome) || empty($cpf) || empty($senha) || empty($email)):
         	return "falha, campos pendentes";
-    	else:	
-			$pdo = conectar();
-			$insertsql = "insert into USUARIO(nome, cpf, login, senha, email, tipoUsuario, 
-												 telefone, datanasc, id_condominio, id_apartamento)
-							 values(?,?,?,?,?,?,?,?,?,?)";
-			$stm = $pdo->prepare($insertsql);
-			$stm->bindValue(1, $nome);
-        	$stm->bindValue(2, $cpf);
-        	$stm->bindValue(3, $login);
-        	$stm->bindValue(4, $senhacode);
-        	$stm->bindValue(5, $email);
-        	$stm->bindValue(6, $tipoUsuario);
-        	$stm->bindValue(7, $telefone);
-        	$stm->bindValue(8, $dtnasc);
-        	$stm->bindValue(9, $idcondominio);
-        	$stm->bindValue(10, $idapto);
-    		$stm->execute();
-    	
+    	else:
+    		try{	
+				$pdo = conectar();
+				$insertsql = "insert into USUARIO(nome, cpf, login, senha, email, tipoUsuario, 
+													 telefone, datanasc, id_condominio, id_apartamento)
+								 values(?,?,?,?,?,?,?,?,?,?)";
+				$stm = $pdo->prepare($insertsql);
+				$stm->bindValue(1, $nome);
+	        	$stm->bindValue(2, $cpf);
+	        	$stm->bindValue(3, $login);
+	        	$stm->bindValue(4, $senhacode);
+	        	$stm->bindValue(5, $email);
+	        	$stm->bindValue(6, $tipoUsuario);
+	        	$stm->bindValue(7, $telefone);
+	        	$stm->bindValue(8, $dtnasc);
+	        	$stm->bindValue(9, $idcondominio);
+	        	$stm->bindValue(10, $id_apto);
+	    		$stm->execute();
+    		}
+    		catch(Exception $e){
+    			echo 'Error'.$e->getMessage();
+    		}
     	endif;
     	$pdo = null;
 
