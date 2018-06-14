@@ -98,16 +98,15 @@
 	}
 
 	function getApto($condominio){
-		sleep(2);
 		$pdo = Conectar();
     	$querysql = "SELECT id_apartamento, id_bloco FROM condominiodetalhe WHERE id_condominio =".$condominio ;
     	$exe = $pdo->prepare($querysql);
     	$exe->bindValue(1, $nomecond);
     	$exe->execute();
     	sleep(1);
-    	while ($linha = $exe->fetch(PDO::FETCH_ASSOC)) {
-    		echo json_encode($linha);
-    	}
+    	$linha = $exe->fetchALL(PDO::FETCH_ASSOC)
+    	$json = json_encode($linha);
+    	echo ($json);
     	$pdo = null;
 	}
 ?>
