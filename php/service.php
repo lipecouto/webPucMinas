@@ -61,16 +61,16 @@
 												 telefone, datanasc, id_condominio, id_apartamento)
 							 values(?,?,?,?,?,?,?,?,?,?)";
 			$stm = $pdo->prepare($insertsql);
-			$stm->bindValue(1, $nome, PDO::PARAM_STR, 100);
-        	$stm->bindValue(2, $cpf, PDO::PARAM_INT);
-        	$stm->bindValue(3, $login, PDO::PARAM_STR, 100);
-        	$stm->bindValue(4, $senhacode, PDO::PARAM_STR, 100);
-        	$stm->bindValue(5, $email, PDO::PARAM_STR, 100);
-        	$stm->bindValue(6, $tipoUsuario, PDO::PARAM_INT);
-        	$stm->bindValue(7, $telefone, PDO::PARAM_INT);
+			$stm->bindValue(1, $nome);
+        	$stm->bindValue(2, $cpf);
+        	$stm->bindValue(3, $login);
+        	$stm->bindValue(4, $senhacode);
+        	$stm->bindValue(5, $email);
+        	$stm->bindValue(6, $tipoUsuario);
+        	$stm->bindValue(7, $telefone);
         	$stm->bindValue(8, $dtnasc);
-        	$stm->bindValue(9, $idcondominio, PDO::PARAM_INT);
-        	$stm->bindValue(10, $idapto, PDO::PARAM_INT);
+        	$stm->bindValue(9, $idcondominio);
+        	$stm->bindValue(10, $idapto);
     		$stm->execute();
     		return "ok";
     	endif;
