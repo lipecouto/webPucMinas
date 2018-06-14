@@ -50,8 +50,8 @@
 
 	function insertUser($nome, $cpf, $login, $senha, $email, $telefone, $tipoUsuario, $dtnasc, $idcondminio, $idapto){
 		
-		$id_apto = (explode('/', $idapto, 1));
-		echo($id_apto);
+		 
+		echo($idapto);
 
 		$senhacode = base64_encode($senha);
 		
@@ -73,7 +73,7 @@
 	        	$stm->bindValue(7, $telefone);
 	        	$stm->bindValue(8, $dtnasc);
 	        	$stm->bindValue(9, $idcondominio);
-	        	$stm->bindValue(10, $id_apto);
+	        	$stm->bindValue(10, $idapto);
 	    		$stm->execute();
     		}
     		catch(Exception $e){
