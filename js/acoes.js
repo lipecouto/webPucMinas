@@ -27,7 +27,7 @@ $(document).ready(function(){
         var dtnascusu = $("#dateborn").val();
         var idcondusu = $("#getCondominio").val();
         var idapusu = $("#getApartamento").val();
-           
+
         cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcondusu, idapusu);
     });
 
@@ -181,7 +181,7 @@ function passAtivo(password, passValidate){
 function cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcondusu, idapusu){
 
         $.ajax({
-            method: "POST",
+            method: "GET",
             url: "/php/service.php?acao=inserir",
             data: {nome : nomeusu, cpf : cpfusu, login : loginusu, senha : senhausu, email : emailusu, telefone : telefoneusu, tipoUsuario : tipusu,
              dtnasc :  dtnascusu, idcondominio : idcondusu, idapto : idapusu} 
