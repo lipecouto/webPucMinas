@@ -35,6 +35,7 @@
 
 			case 'consultaAp':
 				$cond = (isset($_POST['idcondominio']))? $_POST['idcondominio']: '';
+				echo($cond);
 			    echo (getApto($cond));   
 				break;
 
@@ -99,9 +100,9 @@
 
 	function getApto($condominio){
 		$pdo = Conectar();
-    	$querysql = "SELECT id_apartamento, id_bloco FROM condominiodetalhe WHERE id_condominio =".$condominio ;
+    	$querysql = "SELECT id_apartamento, id_bloco FROM condominiodetalhe WHERE id_condominio = ?";
     	$exe = $pdo->prepare($querysql);
-    	$exe->bindValue(1, $nomecond);
+    	$exe->bindValue(1, $condominio);
     	$exe->execute();
     	sleep(1);
     	$linha = $exe->fetchALL(PDO::FETCH_ASSOC);
