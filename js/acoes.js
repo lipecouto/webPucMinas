@@ -34,13 +34,12 @@ $(document).ready(function(){
                     preencheSelectCondminio(data);
               });
                
-
-
-                //Agora carrega os dados do apartamento selecionado
+            
+            //Agora carrega os dados do apartamento selecionado
             $('#getCondominio option:selected').each(function(event){
                     var id_cond = $(this).val();
                     $.getJSON('/php/service.php?acao=consultaAp&idcondomio='+id_cond, function (data){
-                        preencheSelectAp(data)
+                        preencheSelectAp(data);
                     });
                 });
 
