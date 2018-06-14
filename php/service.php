@@ -49,7 +49,7 @@
 	}
 
 	function insertUser($nome, $cpf, $login, $senha, $email, $telefone, $tipoUsuario, $dtnasc, $idcondminio, $idapto){
-
+		echo($idapto);
 
 		$senhacode = base64_encode($senha);
 		
@@ -72,7 +72,7 @@
         	$stm->bindValue(9, $idcondominio);
         	$stm->bindValue(10, $idapto);
     		$stm->execute();
-    		return "ok";
+    	
     	endif;
     	$pdo = null;
 
