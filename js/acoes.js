@@ -148,10 +148,10 @@ function preencheSelectCondminio(data){
 
 function preencheSelectAp(data){
     alert("Entrou na função");
-    if(data != null){}
+    if(data != null){
     $.each(data, function(i, item){
         $('<option>').val(item.id_condominio+"/"+item.id_bloco+"/"+item.id_apartamento).text("Bloco"+item.id_bloco+" Apto"+item.id_apartamento).appendTo('#getApartamento'); 
-    });
+    }   );
     }
     else{
         alert("data esta vazio");
