@@ -2,11 +2,22 @@
 
 $(document).ready(function(){
 
-     $("#listUsers").click(function(){       
+    $("#listUsers").click(function(){       
         $("#lowbody").load("Usuarios-min.html", function(){});
         });
      //esconde botao alerta
-     $("#alertOK").css('display', 'none');
+    $("#alertOK").css('display', 'none');
+
+      //Agora carrega os dados do apartamento selecionado
+    $("#getCondominio").on("change", function(event){
+        var id_cond = $(this).val();
+        alert(id_cond);
+        $.getJSON('/php/service.php?acao=consultaAp&idcondomio='+id_cond, function (data){
+            preencheSelectAp(data);
+        });
+     });
+
+
 
      //Ações quando abrir o menu lateral
      $("#openNav").on("click", function(event) {
@@ -33,18 +44,6 @@ $(document).ready(function(){
               $.getJSON('/php/service.php?acao=consultaCondominio', function(data){
                     preencheSelectCondminio(data);
               });
-               
-            
-            //Agora carrega os dados do apartamento selecionado
-            $('#getCondominio').on("change", function(event){
-                    var id_cond = $(this).val();
-                    alert(id_cond);
-                    $.getJSON('/php/service.php?acao=consultaAp&idcondomio='+id_cond, function (data){
-                        preencheSelectAp(data);
-                    });
-                });
-
-         
         });
 
         $("#newOrder").click(function(){
