@@ -31,27 +31,16 @@ $(document).ready(function(){
               //carrega  os dados dos condominios depois do load
 
               $.getJSON('/php/service.php?acao=consultaCondominio', function(data){
-                    preencheSelect(data);
+                    preencheSelectCondminio(data);
               });
                
 
 
                 //Agora carrega os dados do apartamento selecionado
-                $('#getCondominio option:selected').each(function(event){
+            $('#getCondominio option:selected').each(function(event){
                     var id_cond = $(this).val();
-                    $.getJSON('/php/service.php?acao=consultaAp&idcondomio='+id_cond, function (dados){
-                        if (dados.length > 0){    
-                            var option = '<option>Selecione um Ap de acordo com seu Bloco</option>';
-                            $.each(dados, function(i, obj){
-                                option += '<option value="'+obj.id_apartamento+'/'+obj.id_bloco+'"> Bloco: '+obj.id_bloco+'  Apto:'+obj.id_apartamento+'</option>';
-                            })
-                        $('#getApartamento').html(option).show();
-                     
-                        }else{
-                            Reset();
-                            $('#alerta').html().show();
-                            $('#alerta').html('<span class="mensagem">Erro!</span>');
-                        }
+                    $.getJSON('/php/service.php?acao=consultaAp&idcondomio='+id_cond, function (data){
+                        preencheSelectAp(data)
                     });
                 });
 
@@ -152,10 +141,16 @@ function listaUsers(){
         });
     }
 
-function preencheSelect(data){
-    alert(data[0].razaosocial);
+function preencheSelectCondminio(data){
     $.each(data, function(i, item){
         $('<option>').val(item.id_condomio).text(item.razaosocial).appendTo('#getCondominio'); 
+    });
+    
+}
+
+function preencheSelectAp(data){
+    $.each(data, function(i, item){
+        $('<option>').val(item.id_condomio+"/"+item.id_bloco+"/"+item.id_apartamento).text("Bloco"+item.id_bloco+" Apto"+item.id_apartamento).appendTo('#getApartamento'); 
     });
     
 }
