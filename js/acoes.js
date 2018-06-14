@@ -36,7 +36,7 @@ $(document).ready(function(){
                
             
             //Agora carrega os dados do apartamento selecionado
-            $('#getCondominio option:selected').each(function(event){
+            $('#getCondominio option:selected').click(function(event){
                     var id_cond = $(this).val();
                     alert(id_cond);
                     $.getJSON('/php/service.php?acao=consultaAp&idcondomio='+id_cond, function (data){
