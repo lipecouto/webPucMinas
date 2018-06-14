@@ -156,14 +156,13 @@ function preencheSelectCondminio(data){
 }
 
 function preencheSelectAp(data){
-   
     if(data != null){
     $.each(data, function(i, item){
         $('<option>').val(item.id_apartamento).text("Bloco"+item.id_bloco+" Apto"+item.id_apartamento).appendTo('#getApartamento'); 
         });
     }
     else{
-        alert("data esta vazio");
+        alert("Erro - function preencheSelectAp");
     }
 }
 
