@@ -135,7 +135,7 @@ $(document).ready(function(){
    
 
 
-function closeNav() {
+      function closeNav() {
           document.getElementById("mySidenav").style.width = "0";
           document.getElementById("main").style.marginLeft= "0";
           document.getElementById("main").style.zIndex = "-1";
@@ -146,28 +146,29 @@ function closeNav() {
 
 
 //Enviar dados por requisição assincrona
-function listaUsers(){
-        $.getJSON("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
-            console.log(data[1].Nome);
-        });
+    function listaUsers(){
+            $.getJSON("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
+                console.log(data[1].Nome);
+            });
     }
 
-function preencheSelect(data){
-    alert(data[0].razaosocial);
-    $.each(data, function(i, item){
-        $('<option>').val(item.id_condomio).text(item.razaosocial).appendTo('#getCondominio'); 
-    });
-    
-}
+    function preencheSelect(data){
+        alert(data[0].razaosocial);
+        $.each(data, function(i, item){
+            $('<option>').val(item.id_condomio).text(item.razaosocial).appendTo('#getCondominio'); 
+        });
+        
+    }
 
-function passAtivo(password, passValidate){
+    function passAtivo(password, passValidate){
 
-        if(password != passValidate){
-            alert("As senhas não conferem favor verificar");
-            $("#alerta").css("display","true");        
-        }
-        else {
-            $("#alerta").css("display", "none"); 
-        }
-    }  
+            if(password != passValidate){
+                alert("As senhas não conferem favor verificar");
+                $("#alerta").css("display","true");        
+            }
+            else {
+                $("#alerta").css("display", "none"); 
+            }
+        }    
+
 });

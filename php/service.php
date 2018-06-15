@@ -1,9 +1,6 @@
 <?php
 	require_once('config.php');
 
-
-	
-
 	if(!empty($_GET['acao'])){
 
 		//Guardando a ação solicitada
@@ -38,9 +35,39 @@
 			    getApto($cond);   
 				break;
 
+			case 'login':
+
+			//Pegando as variaveis que estao vindo via POST e salvando em variaveis PHP
+			$email = $_POST['InputEmail'];
+			$senha = $_POST['InputPassword'];
+			
+			// //Montando o Query que sera executada no banco de dados
+			// $sSQL = "SELECT * FROM  USUARIO WHERE email = '".$email."' AND senha = '".$senha."'"; 
+			// //$query = mysqli_query($con,$sSQL);
+
+			// $query = $con->query($sSQL);
+
+			$pdo = conectar();
+			$sSQL = "SELECT * FROM  USUARIO WHERE email = '".$email."' AND senha = '".$senha."'";
+			$stm = $pdo->prepare($sSQL);
+			$stm->execute();
+			//Checando se executou com sucesso
+			if ($query->fetchColumn() > 0)
+			{
+				echo "ok";
+			}
+			else
+			{
+				echo "error";
+			}
+
+
+
+			break;
+
 			default:
 				 echo "Serviço não existe";
-				break;
+			break;
 		}
 	}
 	else{
@@ -110,4 +137,6 @@
     	}
     	$pdo = null;
 	}
+
+
 ?>
