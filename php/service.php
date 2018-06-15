@@ -36,6 +36,11 @@
 			    echo(getApto($cond));   
 				break;
 
+			case 'listUser':
+				 $cond_2 = (isset($_GET['id_cond2'])) ? $_GET['id_cond2']: '';
+				 echo(listaUsuarios($condominio))
+				break;	
+
 			case 'login':
 			//Pegando as variaveis que estao vindo via POST e salvando em variaveis PHP
 				$email = $_POST['InputEmail'];
@@ -101,6 +106,16 @@
 	    endif;
 		$pdo = null;
 	}
+
+	function listaUsuarios($condo_id){
+			$pdo = Conectar();
+	        $querysql = "SELECT * FROM USUARIO USU, CONDOMINIO COND WHERE USU.id_condominio = COND.id_condominio AND USU.id_condominio=".$condo_id;
+	        $exe = $pdo->prepare($querysql);
+	        $exe->execute();
+	        $linha = $exe->fetchAll(PDO::FETCH_ASSOC);
+	        $json = json_encode($linha);
+	        echo ($json);
+	}	
 
 	function getCondominio(){
 	    try{
