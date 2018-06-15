@@ -25,12 +25,10 @@ $(document).ready(function(){
         var telefoneusu = $("#userTel").val();
         var tipusu = $("#ESindicos").val();
         var dtnascusu = $("#dateborn").val();
-        var idcondusu = $("#getCondominio").val();
+        var idcond = $("#getCondominio").val();
         var idapusu = $("#getApartamento").val();
-
-        alert("id capturada com idcondusu:"+ idcondusu);
-        alert("id que ja estava no id_cond:" + id_cond);
-        cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, id_cond, idapusu);
+     
+        cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcond, idapusu);
     });
 
 
@@ -185,6 +183,7 @@ $(document).ready(function(){
         }   
 
     function cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcondusu, idapusu){
+        alert("Aqui na funcao cadastrar o id é: "+idcondusu)
         $.ajax({
             method: "POST",
             url: "/php/service.php?acao=inserir",
