@@ -27,7 +27,7 @@ $(document).ready(function(){
         var dtnascusu = $("#dateborn").val();
         var idcondusu = $("#getCondominio").val();
         var idapusu = $("#getApartamento").val();
-        alert("id do condominio é "+idcondominio)
+        alert("id do condominio é "+idcondominio);
         cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcondusu, idapusu);
     });
 
