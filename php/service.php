@@ -66,8 +66,7 @@
 	}
 
 	function insertUser($nome, $cpf, $login, $senha, $email,$tipoUsuario, $telefone, $dtnasc, $idcondminio, $idapto){ 
-    	echo("teste de issert");
-    	
+
     	$senhacode = base64_encode($senha);
 	    
 	    if (empty($nome) || empty($cpf) || empty($senha) || empty($email)):
@@ -79,16 +78,16 @@
 		                           telefone, datanasc, id_condominio, id_apartamento)
 		                 VALUES(?,?,?,?,?,?,?,?,?,?)";
 		        $stm = $pdo->prepare($insertsql);
-		        $stm->bindParam(1, $nome);
-	        	$stm->bindParam(2, $cpf);
-	            $stm->bindParam(3, $login);
-	            $stm->bindParam(4, $senhacode);
-	            $stm->bindParam(5, $email);
-	            $stm->bindParam(6, $tipoUsuario);
-	            $stm->bindParam(7, $telefone);
-	            $stm->bindParam(8, $dtnasc);
-	            $stm->bindParam(9, $idcondominio);
-	            $stm->bindParam(10, $idapto);
+		        $stm->bindValue(1, $nome);
+	        	$stm->bindValue(2, $cpf);
+	            $stm->bindValue(3, $login);
+	            $stm->bindValue(4, $senhacode);
+	            $stm->bindValue(5, $email);
+	            $stm->bindValue(6, $tipoUsuario);
+	            $stm->bindValue(7, $telefone);
+	            $stm->bindValue(8, $dtnasc);
+	            $stm->bindParam(9, $idcondominio, PDO::PARAM_INT);
+	            $stm->bindParam(10, $idapto, PDO::PARAM_INT);
 	          	$ok = ($stm->execute());
 	          	if(!$ok){
 	          		print_r($stm->errorInfo());
