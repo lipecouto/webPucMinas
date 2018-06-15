@@ -116,6 +116,7 @@
 	        $linha = $exe->fetchAll(PDO::FETCH_ASSOC);
 	        $json = json_encode($linha);
 	        echo ($json);
+	        $pdo = null;
 	}	
 
 	function getCondominio(){
