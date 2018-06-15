@@ -81,7 +81,7 @@
 			$pdo = conectar();
 			$deletesql = "DELETE * FROM USUARIO WHERE id_usuario = ? CASCADE"
 			$stm = $pdo->prepare($deletesql);
-			$stm =  $stm->bindParam(1, $idDelete_);
+			$stm->bindParam(1, $idDelete_);
 			$ok = ($stm->execute());
 			if(!$ok){
 				print_r($stm->errorInfo());
