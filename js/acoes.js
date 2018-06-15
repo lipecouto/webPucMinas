@@ -20,6 +20,16 @@ $(document).ready(function(){
         var idusuVotado = $("#votaSindico").val();
      });
 
+
+    $("#btncadastrarpost").on("click", function(event){
+        var titlepost = $("#titulopostagem").val();
+        var textpost = $("#comment").val();
+        var idcondpost = $("#getCondominio").val();
+        var idapusupost = $("#getUsuariopost").val();
+
+        cadastrarpost(titlepost,textpost, idcondpost, idapusupost);
+    });
+
     $("#btncadastrar").on("click", function(event){
         var nomeusu = $("#fullname").val();
         var cpfusu = $("#personid").val();
@@ -34,7 +44,6 @@ $(document).ready(function(){
      
         cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcond, idapusu);
     });
-
 
      //Ações quando abrir o menu lateral
      $("#openNav").on("click", function(event) {
@@ -145,7 +154,7 @@ $(document).ready(function(){
         document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0)";
     });
 
-   
+
 
 
       function closeNav() {
@@ -253,6 +262,21 @@ $(document).ready(function(){
                 alert("Erro ao processar sua solicitação");
             }
         });
-}          
+    }   
+
+    function cadastrarpost(titlepost,textpost ,idcondpost, idapusupost){
+        $.ajax({
+            method: "POST",
+            url: "/php/service.php?acao=inserir",
+            data: {title : titlepost, text : textpost, idcond : idcondpost, idusu : idapusupost} 
+        })
+        .done(function(msg){
+            if(msg == "ok"){
+                alert("Inserido com sucesso");
+            }else{
+                alert("Erro ao processar sua solicitação");
+            }
+        });
+    }
 
 });
