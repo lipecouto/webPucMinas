@@ -19,12 +19,11 @@
 				$tel  = (isset($_POST['telefone']))? $_POST['telefone']: '';
 				$tu   = (isset($_POST['tipoUsuario']))? $_POST['tipoUsuario']: '';
 				$dt   = (isset($_POST['dtnasc']))? $_POST['dtnasc']: '';
-				$cond = (isset($_POST['idcond']))? $_POST['idcond']: '0';
+				$cond = (isset($_POST['idcond']))? $_POST['idcond']: '';
 				$ap   = (isset($_POST['idapto']))? $_POST['idapto']: '';
 				//chama a função inserir usuário
-				echo ($cond);
-				echo ("-----".$n);
-				//insertUser($n, $c, $l, $s, $e, $tel, $tu, $dt, $cond, $ap);
+	
+				insertUser($n, $c, $l, $s, $e, $tel, $tu, $dt, $cond, $ap);
 				break;
 			
 			case 'consultaCondominio':
