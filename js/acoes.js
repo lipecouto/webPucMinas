@@ -7,6 +7,30 @@ $(document).ready(function(){
         });
      //esconde botao alerta
      $("#alertOK").css('display', 'none');
+     
+     //Agora carrega os dados do apartamento selecionado
+     $("#getCondominio").on("change", function(event){
+        var id_cond = $("#getCondominio").val();
+        $.getJSON('/php/service.php?acao=consultaAp&idcondominio='+id_cond, function (data){
+            preencheSelectAp(data);
+        });
+     });
+    
+    $("#btncadastrar").on("click", function(event){
+        var nomeusu = $("#fullname").val();
+        var cpfusu = $("#personid").val();
+        var loginusu = $("#userLogin").val();
+        var senhausu = $("#userPass").val();
+        var emailusu = $("#userEmail").val();
+        var telefoneusu = $("#userTel").val();
+        var tipusu = $("#ESindicos").val();
+        var dtnascusu = $("#dateborn").val();
+        var idcondusu = $("#getCondominio").val();
+        var idapusu = $("#getApartamento").val();
+ 
+        cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcondusu, idapusu);
+    });
+
 
      //Ações quando abrir o menu lateral
      $("#openNav").on("click", function(event) {
@@ -17,7 +41,7 @@ $(document).ready(function(){
          document.getElementById("lowbody").style.backgroundColor = "rgba(0,0,0,0.4)";
 
         $("#addUser").click(function(){
-             $("#lowbody").load("CadastroUsuario-min.html", function(event){
+            $("#lowbody").load("CadastroUsuario-min.html", function(event){
                  closeNav();
 
                  $("#alerta").css("display", "none"); 
@@ -28,33 +52,11 @@ $(document).ready(function(){
                  });
             });
 
-              //carrega  os dados dos condominios depois do load
-
-              $.getJSON('/php/service.php?acao=consultaCondominio', function(data){
-                    preencheSelect(data);
-              });
-               
-
-
-                //Agora carrega os dados do apartamento selecionado
-                $('#getCondominio option:selected').each(function(event){
-                    var id_cond = $(this).val();
-                    $.getJSON('/php/service.php?acao=consultaAp&idcondomio='+id_cond, function (dados){
-                        if (dados.length > 0){    
-                            var option = '<option>Selecione um Ap de acordo com seu Bloco</option>';
-                            $.each(dados, function(i, obj){
-                                option += '<option value="'+obj.id_apartamento+'/'+obj.id_bloco+'"> Bloco: '+obj.id_bloco+'  Apto:'+obj.id_apartamento+'</option>';
-                            })
-                        $('#getApartamento').html(option).show();
-                     
-                        }else{
-                            Reset();
-                            $('#alerta').html().show();
-                            $('#alerta').html('<span class="mensagem">Erro!</span>');
-                        }
-                    });
-                });
-
+             //carrega  os dados dos condominios depois do load
+ 
+            $.getJSON('/php/service.php?acao=consultaCondominio', function(data){
+                    preencheSelectCondminio(data);
+            });
          
         });
 
@@ -152,12 +154,21 @@ $(document).ready(function(){
             });
     }
 
-    function preencheSelect(data){
-        alert(data[0].razaosocial);
+    function preencheSelectCondminio(data){
         $.each(data, function(i, item){
-            $('<option>').val(item.id_condomio).text(item.razaosocial).appendTo('#getCondominio'); 
-        });
-        
+            $('<option>').val(item.id_condominio).text(item.razaosocial).appendTo('#getCondominio'); 
+        });   
+    }
+
+    function preencheSelectAp(data){
+        if(data != null){
+            $.each(data, function(i, item){
+                $('<option>').val(item.id_apartamento).text("Bloco"+item.id_bloco+" Apto"+item.id_apartamento).appendTo('#getApartamento'); 
+            });
+        }
+        else{
+            alert("Erro - function preencheSelectAp");
+        }
     }
 
     function passAtivo(password, passValidate){
@@ -169,6 +180,22 @@ $(document).ready(function(){
             else {
                 $("#alerta").css("display", "none"); 
             }
-        }    
+        }   
+
+    function cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcondusu, idapusu){
+        $.ajax({
+            method: "POST",
+            url: "/php/service.php?acao=inserir",
+            data: {nome : nomeusu, cpf : cpfusu, login : loginusu, senha : senhausu, email : emailusu, telefone : telefoneusu, tipoUsuario : tipusu,
+             dtnasc :  dtnascusu, idcondominio : idcondusu, idapto : idapusu} 
+        })
+        .done(function(msg){
+            if(msg == "ok"){
+                alert("Inserido com sucesso");
+            }else{
+                alert("Erro ao processar sua solicitação");
+            }
+        });
+}          
 
 });

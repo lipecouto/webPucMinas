@@ -36,26 +36,24 @@
 				break;
 
 			case 'login':
-
 			//Pegando as variaveis que estao vindo via POST e salvando em variaveis PHP
-			$email = $_POST['InputEmail'];
-			$senha = $_POST['InputPassword'];
+				$email = $_POST['InputEmail'];
+				$senha = $_POST['InputPassword'];
 
-			$pdo = conectar();
-			$sSQL = "SELECT * FROM  USUARIO WHERE email = '".$email."' AND senha = '".$senha."'";
-			$stm = $pdo->prepare($sSQL);
-			$stm->execute();
-			//Checando se executou com sucesso
-			if ($stm->fetchColumn() > 0)
-			{
-				echo "ok";
-			}
-			else
-			{
-				echo "erro";
-			}
-			
-			break;
+				$pdo = conectar();
+				$sSQL = "SELECT * FROM  USUARIO WHERE email = '".$email."' AND senha = '".$senha."'";
+				$stm = $pdo->prepare($sSQL);
+				$stm->execute();
+				//Checando se executou com sucesso
+				if ($stm->fetchColumn() > 0)
+				{
+					echo "ok";
+				}
+				else
+				{
+					echo "erro";
+				}
+				break;
 
 			default:
 				 echo "Serviço não existe";
