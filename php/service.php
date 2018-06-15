@@ -88,8 +88,11 @@
 	            $stm->bindParam(8, $dtnasc);
 	            $stm->bindParam(9, $idcondominio);
 	            $stm->bindParam(10, $idapto);
-	          	$stm->execute();
-	          	echo 'teste de insert';
+	          	$ok = ($stm->execute());
+	          	if(!$ok){
+	          		print_r($stm->errorInfo());
+	          	}else
+	          	echo 'ok';
 	        }
 	        catch(Exception $e){
 	          	echo 'Error'.$e->getMessage();
