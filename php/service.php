@@ -16,13 +16,14 @@
 				$l = (isset($_POST['login']))? $_POST['login']: '';
 				$s = (isset($_POST['senha']))? $_POST['senha']: '';
 				$e = (isset($_POST['email']))? $_POST['email']: '';
-				$tel = (isset($_POST['telefone']))? $_POST['telefone']: '';
-				$tu = (isset($_POST['tipoUsuario']))? $_POST['tipoUsuario']: '';
+				$tel  = (isset($_POST['telefone']))? $_POST['telefone']: '';
+				$tu   = (isset($_POST['tipoUsuario']))? $_POST['tipoUsuario']: '';
 				$dt   = (isset($_POST['dtnasc']))? $_POST['dtnasc']: '';
 				$cond = (isset($_POST['idcondominio']))? $_POST['idcondominio']: '';
-				$ap      = (isset($_POST['idapto']))? $_POST['idapto']: '';
+				$ap   = (isset($_POST['idapto']))? $_POST['idapto']: '';
 				//chama a função inserir usuário
-				insertUser($n, $c, $l, $s, $e, $tel, $tu, $dt, $cond, $ap);
+				echo ($cond);
+				//insertUser($n, $c, $l, $s, $e, $tel, $tu, $dt, $cond, $ap);
 				break;
 			
 			case 'consultaCondominio':
@@ -74,19 +75,17 @@
 	      else:
 	        try{  
 		        $pdo = conectar();
-		        $insertsql = "INSERT INTO USUARIO(nome, cpf, login, senha, email, tipoUsuario, 
-		                           telefone, datanasc, id_condominio, id_apartamento)
-		                 VALUES(?,?,?,?,?,?,?,?,?,?)";
+		        $insertsql = "INSERT INTO USUARIO(nome, cpf, login, senha, email, tipoUsuario, telefone, datanasc, id_condominio, id_apartamento) VALUES(?,?,?,?,?,?,?,?,?,?)";
 		        $stm = $pdo->prepare($insertsql);
-		        $stm->bindValue(1, $nome);
-	        	$stm->bindValue(2, $cpf);
-	            $stm->bindValue(3, $login);
-	            $stm->bindValue(4, $senhacode);
-	            $stm->bindValue(5, $email);
-	            $stm->bindValue(6, $tipoUsuario);
-	            $stm->bindValue(7, $telefone);
-	            $stm->bindValue(8, $dtnasc);
-	            $valor_id = $stm->bindParam(9, $idcondominio, PDO::PARAM_INT);
+		        $stm->bindParam(1, $nome);
+	        	$stm->bindParam(2, $cpf);
+	            $stm->bindParam(3, $login);
+	            $stm->bindParam(4, $senhacode);
+	            $stm->bindParam(5, $email);
+	            $stm->bindParam(6, $tipoUsuario, PDO::PARAM_INT);
+	            $stm->bindParam(7, $telefone);
+	            $stm->bindParam(8, $dtnasc);
+	            $stm->bindParam(9, $idcondominio, PDO::PARAM_INT);
 	            $stm->bindParam(10, $idapto, PDO::PARAM_INT);
 	          	$ok = ($stm->execute());
 	          	if(!$ok){
