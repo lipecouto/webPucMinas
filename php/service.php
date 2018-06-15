@@ -158,7 +158,7 @@
 
 		function insertUserpost($title, $text, $idcond, $idusu){ 
 	    
-	    if (empty($title) || empty($text) || empty($idcond) || empty($idusu)):
+	    if (empty($title) || empty($text)):
 	          return "falha, campos pendentes";
 	      else:
 	        try{  
