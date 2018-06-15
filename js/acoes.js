@@ -152,7 +152,7 @@ $(document).ready(function(){
 
 //Enviar dados por requisição assincrona
     function listaUsers(data){
-        $.each(jsondata.response, function(i,d){
+        $.each(data.response, function(i,d){
             var row = '<tr>';
              $.each(d, function(i, item){
                 row +='<td>'+item+'</td>';
