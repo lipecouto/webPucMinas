@@ -152,14 +152,16 @@ $(document).ready(function(){
 
 //Enviar dados por requisição assincrona
     function listaUsers(data){
-        var row = '<tr>'
+        
         $.each(data, function(i, item){
-            row +='<tb>'+item.login+'</tb>';
-            row +='<tb>'+item.nome+'</tb>';
-            row +='<tb>'+item.email+'</tb>';
+            var row = '<tr>'
+                row +='<tb>'+item.login+'</tb>';
+                row +='<tb>'+item.nome+'</tb>';
+                row +='<tb>'+item.email+'</tb>';
+                row +='</tr>';
          }); 
-        row +='</tr>';
-        $('<tbody>').text(row);        
+        
+        $('<tbody>').html(row);        
     }
 
     function preencheSelectCondminio(data){
