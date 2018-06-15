@@ -68,7 +68,6 @@
 
 	function insertUser($nome, $cpf, $login, $senha, $email,$tipoUsuario, $telefone, $dtnasc, $idcond_, $idapto){ 
 
-		echo($idcond_);
     	$senhacode = base64_encode($senha);
 	    
 	    if (empty($nome) || empty($cpf) || empty($senha) || empty($email)):
