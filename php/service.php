@@ -86,11 +86,12 @@
 	            $stm->bindValue(6, $tipoUsuario);
 	            $stm->bindValue(7, $telefone);
 	            $stm->bindValue(8, $dtnasc);
-	            $stm->bindParam(9, $idcondominio, PDO::PARAM_INT);
+	            $valor_id = $stm->bindParam(9, $idcondominio, PDO::PARAM_INT);
 	            $stm->bindParam(10, $idapto, PDO::PARAM_INT);
 	          	$ok = ($stm->execute());
 	          	if(!$ok){
 	          		print_r($stm->errorInfo());
+	          		echo ($valor_id);
 	          	}else
 	          	echo 'ok';
 	        }
