@@ -65,7 +65,7 @@
 		echo "Sem ação definida!";
 	}
 
-	function insertUser($nome, $cpf, $login, $senha, $email, $telefone, $tipoUsuario, $dtnasc, $idcondminio, $idapto){ 
+	function insertUser($nome, $cpf, $login, $senha, $email,$tipoUsuario, $telefone, $dtnasc, $idcondminio, $idapto){ 
     	
     	echo($nome.'/'.$cpf.'/'.$login.'/'.$senha.'/'.$email.'/'.$telefone.'/'.$tipoUsuario.'/'.$dtnasc.'/'.$idcondminio.'/'.$idapto);
     	
