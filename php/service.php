@@ -88,6 +88,7 @@
 	            $stm->bindValue(9, $idcondominio);
 	            $stm->bindValue(10, $idapto);
 	          	$stm->execute();
+	          	echo 'Sucesso';
 	        }
 	        catch(Exception $e){
 	          	echo 'Error'.$e->getMessage();
