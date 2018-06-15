@@ -172,18 +172,13 @@ $(document).ready(function(){
           });
 
         RemoveTableRow = function(handler, valueRow) {
-        var tr = $(handler).closest('tr');  
-         deleteUser(valueRow);
-        tr.fadeOut(400, function(){ 
-
-          tr.remove(); 
-        }); 
-
+            deleteUser(valueRow, handler);
+            
         return false;
       };      
     }
 
-    function deleteUser(idDeletar){
+    function deleteUser(idDeletar, handler){
 
          $.ajax({
             method: "POST",
@@ -192,6 +187,11 @@ $(document).ready(function(){
         }).done(function(msg){
            if(msg=="ok"){
             alert("Usuário excluido com sucesso");
+               var tr = $(handler).closest('tr'); 
+               tr.fadeOut(400, function(){ 
+                    tr.remove(); 
+                });  
+                
            }else{
             alert("Algum problema impediu a exclusão");
            }
