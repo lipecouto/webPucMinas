@@ -47,7 +47,7 @@
 				$senha = $_POST['InputPassword'];
 				$senhacode = base64_encode($senha);
 				$pdo = conectar();
-				$sSQL = "SELECT * FROM  USUARIO WHERE email = '".$email."' AND senha = '".$senha."'";
+				$sSQL = "SELECT * FROM  USUARIO WHERE email = '".$email."' AND senha = '".$senhacode."'";
 				$stm = $pdo->prepare($sSQL);
 				$stm->execute();
 				//Checando se executou com sucesso

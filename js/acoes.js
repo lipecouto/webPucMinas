@@ -78,7 +78,10 @@ $(document).ready(function(){
         $("#users").click(function(){
              $("#lowbody").load("Usuarios-min.html", function(event){
                closeNav();
-               //listaUsers();
+                $.getJSON("http://webpuc.gigaup.com.br/php/service.php?acao=listUser&id_cond2=1", function(data){
+                     listaUsers(data);
+                 });
+              
              });    
          });
 
@@ -148,10 +151,19 @@ $(document).ready(function(){
 
 
 //Enviar dados por requisição assincrona
-    function listaUsers(){
-            $.getJSON("http://apicondominio.azurewebsites.net/api/usuario/", function(data){
-                console.log(data[1].Nome);
-            });
+    function listaUsers(data){
+        var jsondata = $.parseJSON(data);
+        $.each(jsondata.response, function(i,d){
+            var row = '<tr>';
+             $.each(d, function(i, item){
+                row +='<td>'+item+'</td>';
+
+             });
+             row = '</tr>';
+            $('#table tbody').append(row);
+
+        })
+        
     }
 
     function preencheSelectCondminio(data){
