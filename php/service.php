@@ -61,6 +61,11 @@
 				}
 				break;
 
+			case 'deletarUser':
+				$idDelete = (isset($_POST['iduserDelete']))? $_POST['iduserDelete']: '';
+				deleteUser($idDelete);
+				break;
+
 			default:
 				 echo "Serviço não existe";
 			break;
@@ -69,6 +74,24 @@
 	else{
 
 		echo "Sem ação definida!";
+	}
+
+	function deleteUser($idDelete_){
+		try{
+			$pdo = conectar();
+			$deletesql = "DELETE * FROM USUARIO WHERE id_usuario = ? CASCADE"
+			$stm = $pdo->prepare($deletesql);
+			$stm =  $stm->bindParam(1, $idDelete_);
+			$ok = ($stm->execute());
+			if(!$ok){
+				print_r($stm->errorInfo());
+			}else
+			 echo 'ok';
+			}
+			catch(Exception $e){
+	          	echo 'Error'.$e->getMessage();
+	        	return null;
+	    	}
 	}
 
 	function insertUser($nome, $cpf, $login, $senha, $email,$tipoUsuario, $telefone, $dtnasc, $idcond_, $idapto){ 
