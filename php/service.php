@@ -39,7 +39,7 @@
 			//Pegando as variaveis que estao vindo via POST e salvando em variaveis PHP
 				$email = $_POST['InputEmail'];
 				$senha = $_POST['InputPassword'];
-
+				$senhacode = base64_encode($senha);
 				$pdo = conectar();
 				$sSQL = "SELECT * FROM  USUARIO WHERE email = '".$email."' AND senha = '".$senha."'";
 				$stm = $pdo->prepare($sSQL);
@@ -66,17 +66,16 @@
 	}
 
 	function insertUser($nome, $cpf, $login, $senha, $email, $telefone, $tipoUsuario, $dtnasc, $idcondminio, $idapto){ 
-    	echo($nome.$cpf.$senha.$email);
+    	
     	$senhacode = base64_encode($senha);
-    
 	    if (empty($nome) || empty($cpf) || empty($senha) || empty($email)):
 	          return "falha, campos pendentes";
 	      else:
 	        try{  
 		        $pdo = conectar();
-		        $insertsql = "insert into USUARIO(nome, cpf, login, senha, email, tipoUsuario, 
+		        $insertsql = "INSERT INTO USUARIO(nome, cpf, login, senha, email, tipoUsuario, 
 		                           telefone, datanasc, id_condominio, id_apartamento)
-		                 values(?,?,?,?,?,?,?,?,?,?)";
+		                 VALUES(?,?,?,?,?,?,?,?,?,?)";
 		        $stm = $pdo->prepare($insertsql);
 		        $stm->bindValue(1, $nome);
 	        	$stm->bindValue(2, $cpf);
