@@ -153,10 +153,6 @@ $(document).ready(function(){
 //Enviar dados por requisição assincrona
     function listaUsers(data){
           $.each(data, function(i, item){
-            AddTableRow(this);
-
-            AddTableRow = function() {
-          
             var newRow = $("<tr>");
             var cols = "";
           
@@ -174,7 +170,6 @@ $(document).ready(function(){
             $("#user-table").append(newRow);
         
           return false;
-      };
           });
 
         RemoveTableRow = function(handler) {
