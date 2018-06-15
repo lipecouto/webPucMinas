@@ -32,7 +32,7 @@
 
 			case 'consultaAp':
 				$cond = (isset($_GET['idcondominio'])) ? $_GET['idcondominio']: '';
-			    getApto($cond);   
+			    echo(getApto($cond));   
 				break;
 
 			case 'login':
@@ -97,6 +97,26 @@
 	    endif;
 		$pdo = null;
 	}
+
+	function getCondominio(){
+	    try{
+	        $pdo = Conectar();
+	        $querysql = "SELECT razaosocial, id_condominio FROM CONDOMINIO";
+	        $exe = $pdo->prepare($querysql);
+	        $exe->execute();
+	        sleep(1); 
+	        $linha = $exe->fetchAll(PDO::FETCH_ASSOC);
+	        $json = json_encode($linha);
+	        echo ($json);
+	      }
+	      catch (Exception $e){
+	          echo 'Erro: '.$e->getMessage();
+	          return null;
+	      }
+	 
+	      $pdo = null;
+  	}
+ 
 
 	function getApto($condominio){
 	 	$pdo = Conectar();
