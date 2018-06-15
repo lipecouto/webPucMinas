@@ -153,7 +153,7 @@ $(document).ready(function(){
 //Enviar dados por requisição assincrona
     function listaUsers(data){
           $.each(data, function(i, item){
-            alert("teste de funcionalidade");
+
             var newRow = $("<tr>");
             var cols = "";
           
@@ -167,22 +167,23 @@ $(document).ready(function(){
             cols += '</td>';
           
             newRow.append(cols);
-            alert(cols);
+          
             $("#user-table").append(newRow);
-        
-          return false;
           });
 
         RemoveTableRow = function(handler) {
         var tr = $(handler).closest('tr');
-
+        alert(handler.val());
         tr.fadeOut(400, function(){ 
+
           tr.remove(); 
         }); 
 
         return false;
       };      
     }
+
+    function deleteUser()
 
     function preencheSelectCondminio(data){
         $.each(data, function(i, item){
