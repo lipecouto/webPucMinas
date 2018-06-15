@@ -66,8 +66,11 @@
 	}
 
 	function insertUser($nome, $cpf, $login, $senha, $email, $telefone, $tipoUsuario, $dtnasc, $idcondminio, $idapto){ 
-    	echo($nome.'/'.$cpf.'/'.$login.'/'.$senha.'/'.$email.'/'.$telefone.'/'.$tipoUsuario.'/'.$dtnasc.'/'.$idcondminio.'/'.$idapto)
+    	
+    	echo($nome.'/'.$cpf.'/'.$login.'/'.$senha.'/'.$email.'/'.$telefone.'/'.$tipoUsuario.'/'.$dtnasc.'/'.$idcondminio.'/'.$idapto);
+    	
     	$senhacode = base64_encode($senha);
+	    
 	    if (empty($nome) || empty($cpf) || empty($senha) || empty($email)):
 	          return "falha, campos pendentes";
 	      else:
