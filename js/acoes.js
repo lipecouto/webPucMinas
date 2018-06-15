@@ -153,6 +153,7 @@ $(document).ready(function(){
 //Enviar dados por requisição assincrona
     function listaUsers(data){
           $.each(data, function(i, item){
+            alert("teste de funcionalidade");
             var newRow = $("<tr>");
             var cols = "";
           
@@ -166,7 +167,7 @@ $(document).ready(function(){
             cols += '</td>';
           
             newRow.append(cols);
-          
+            alert(cols);
             $("#user-table").append(newRow);
         
           return false;
@@ -180,9 +181,7 @@ $(document).ready(function(){
         }); 
 
         return false;
-      };
-      
-      
+      };      
     }
 
     function preencheSelectCondminio(data){
