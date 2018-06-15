@@ -207,7 +207,7 @@ $(document).ready(function(){
     }
 
     function preencherSelectVotacao(data){
-        $each(data, function(i, item){
+        $.each(data, function(i, item){
           $('<option>').val(item.id_usuario).text(item.nome+' / '+ item.razaosocial).appendTo('#votaSindico');   
         });
     }
