@@ -152,13 +152,9 @@ $(document).ready(function(){
 
 //Enviar dados por requisição assincrona
     function listaUsers(data){
-        $.each(d, function(i, item){
+        $.each(data, function(i, item){
            $('<tb>').text(item[i]).appendTo('<tr>').appendTo('tbody');
-        });
-           
-
-      
-        
+        });         
     }
 
     function preencheSelectCondminio(data){
