@@ -38,7 +38,7 @@
 
 			case 'listUser':
 				 $cond_2 = (isset($_GET['id_cond2'])) ? $_GET['id_cond2']: '';
-				 echo(listaUsuarios($condominio))
+				 echo(listaUsuarios($condominio));
 				break;	
 
 			case 'login':
