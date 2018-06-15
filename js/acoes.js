@@ -152,9 +152,9 @@ $(document).ready(function(){
 
 //Enviar dados por requisição assincrona
     function listaUsers(data){
-        
+        var row = null;
         $.each(data, function(i, item){
-            var row = '<tr>'
+                row += '<tr>'
                 row +='<tb>'+item.login+'</tb>';
                 row +='<tb>'+item.nome+'</tb>';
                 row +='<tb>'+item.email+'</tb>';
