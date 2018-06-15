@@ -66,8 +66,9 @@
 		echo "Sem ação definida!";
 	}
 
-	function insertUser($nome, $cpf, $login, $senha, $email,$tipoUsuario, $telefone, $dtnasc, $idcondminio, $idapto){ 
+	function insertUser($nome, $cpf, $login, $senha, $email,$tipoUsuario, $telefone, $dtnasc, $idcond_, $idapto){ 
 
+		echo($idcond_);
     	$senhacode = base64_encode($senha);
 	    
 	    if (empty($nome) || empty($cpf) || empty($senha) || empty($email)):
@@ -85,7 +86,7 @@
 	            $stm->bindParam(6, $tipoUsuario);
 	            $stm->bindParam(7, $telefone);
 	            $stm->bindParam(8, $dtnasc);
-	            $stm->bindParam(9, $idcondominio);
+	            $stm->bindParam(9, $idcond_);
 	            $stm->bindParam(10, $idapto, PDO::PARAM_INT);
 	          	$ok = ($stm->execute());
 	          	if(!$ok){
