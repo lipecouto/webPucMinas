@@ -67,9 +67,7 @@
 
 	function insertUser($nome, $cpf, $login, $senha, $email,$tipoUsuario, $telefone, $dtnasc, $idcondminio, $idapto){ 
     	
-    	echo($nome.'/'.$cpf.'/'.$login.'/'.$senha.'/'.$email.'/'.$telefone.'/'.$tipoUsuario.'/'.$dtnasc.'/'.$idcondminio.'/'.$idapto);
-    	
-    	$senhacode = base64_encode($senha);
+     	$senhacode = base64_encode($senha);
 	    
 	    if (empty($nome) || empty($cpf) || empty($senha) || empty($email)):
 	          return "falha, campos pendentes";
@@ -91,7 +89,7 @@
 	            $stm->bindParam(9, $idcondominio);
 	            $stm->bindParam(10, $idapto);
 	          	$stm->execute();
-	          	echo 'Sucesso';
+	          	echo 'teste de insert';
 	        }
 	        catch(Exception $e){
 	          	echo 'Error'.$e->getMessage();
