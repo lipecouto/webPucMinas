@@ -154,9 +154,9 @@ $(document).ready(function(){
     function listaUsers(data){
           $.each(data, function(i, item){
 
-            var newRow = $("<tr>");
+            var newRow = $("<tr value='".item.id_usuario."'>");
             var cols = "";
-          
+            cols += '<td>'+item.id_usuario+'</td>';
             cols += '<td>'+item.login+'</td>';
             cols += '<td>'+item.nome+'</td>';
             cols += '<td>'+item.email+'</td>';
@@ -173,7 +173,8 @@ $(document).ready(function(){
 
         RemoveTableRow = function(handler) {
         var tr = $(handler).closest('tr');
-        alert(handler.val());
+        var idDelete = $(handler).val('tr');
+        alert(idDelete);
         tr.fadeOut(400, function(){ 
 
           tr.remove(); 
