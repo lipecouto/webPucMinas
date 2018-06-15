@@ -65,11 +65,9 @@
 		echo "Sem ação definida!";
 	}
 
-	function insertUser($nome, $cpf, $login, $senha, $email,$tipoUsuario, $telefone, $dtnasc, $idcondminio, $idapto){ 
+	function insertUser($nome, $cpf, $login, $senha, $email, $tipoUsuario, $telefone, $dtnasc, $idcondminio, $idapto){ 
     	
-    	echo($idcondminio.'/'.$idapto);
-    	
-     	$senhacode = base64_encode($senha);
+    	$senhacode = base64_encode($senha);
 	    
 	    if (empty($nome) || empty($cpf) || empty($senha) || empty($email)):
 	          return "falha, campos pendentes";
@@ -78,19 +76,24 @@
 		        $pdo = conectar();
 		        $insertsql = "INSERT INTO USUARIO(nome, cpf, login, senha, email, tipoUsuario, 
 		                           telefone, datanasc, id_condominio, id_apartamento)
-		                 VALUES(?,?,?,?,?,?,?,?,?,?)";
+		                 VALUES(:nomeusu, :cpfusu, :loginusu, :senhausu, :emailusu, :tipoUsuario, 
+		                 			:telusu, :dtnasusu, :idcond, :idap)";
 		        $stm = $pdo->prepare($insertsql);
-		        $stm->bindParam(1, $nome);
-	        	$stm->bindParam(2, $cpf);
-	            $stm->bindParam(3, $login);
-	            $stm->bindParam(4, $senhacode);
-	            $stm->bindParam(5, $email);
-	            $stm->bindParam(6, $tipoUsuario);
-	            $stm->bindParam(7, $telefone);
-	            $stm->bindParam(8, $dtnasc);
-	            $stm->bindParam(9, $idcondominio);
-	            $stm->bindParam(10, $idapto);
-	          	$ok = ($stm->execute());
+		       
+	          	$ok = ($stm->execute(array(
+									    'nomeusu'      => strip_tags($nome), 
+									    'cpfusu'  	   => strip_tags($cpf), 
+									    'loginusu'     => strip_tags($login), 
+									    'senhausu'     => strip_tags($senha), 
+									    'emailusu'     => strip_tags($email), 
+									    'tipoUsuario'  => strip_tags($tipoUsuario),
+									    'telusu'  	   => strip_tags($telefone),
+									    'dtnasusu'     => date('Y-m-d', $dtnasc),
+									    'idcond'       => strip_tags($idcondminio),
+									    'idcond'       => strip_tags($idapto)
+										)
+	          						)
+	          			);
 	          	if(!$ok){
 	          		print_r($stm->errorInfo());
 	          	}else
