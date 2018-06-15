@@ -154,7 +154,7 @@ $(document).ready(function(){
     function listaUsers(data){
         var row = null;
         $.each(data, function(i, item){
-                row += '<tr>'
+                row = '<tr>'
                 row +='<tb>'+item.login+'</tb>';
                 row +='<tb>'+item.nome+'</tb>';
                 row +='<tb>'+item.email+'</tb>';
