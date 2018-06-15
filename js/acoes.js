@@ -183,7 +183,7 @@ $(document).ready(function(){
       };      
     }
 
-    function deleteUser()
+    function deleteUser(){}
 
     function preencheSelectCondminio(data){
         $.each(data, function(i, item){
