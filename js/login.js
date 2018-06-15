@@ -40,7 +40,7 @@ $(document).ready(function()
         {
             if(msg == "ok")
             {
-                window.location.replace("/home.html");
+                window.location.replace("/Home.html");
             }
             else
             {
