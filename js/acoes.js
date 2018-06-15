@@ -152,16 +152,21 @@ $(document).ready(function(){
 
 //Enviar dados por requisição assincrona
     function listaUsers(data){
-        var row = null;
-        $.each(data, function(i, item){
-                row = '<tr>'
-                row +='<tb>'+item.login+'</tb>';
-                row +='<tb>'+item.nome+'</tb>';
-                row +='<tb>'+item.email+'</tb>';
-                row +='</tr>';
-         }); 
-        alert(row);
-        $('#dados').html(row);        
+        var dataset = [];
+        $.each(data, function(i, item){  
+            dataset.push([item.login, 
+            item.nome, 
+            item.email
+            ]);       
+         });
+        $('#tablex').DataTable({
+            data : dataset,
+             columns: [
+                { title: 'Login' },
+                { title: 'Name' },
+                { title: 'email' }
+             ]
+        });        
     }
 
     function preencheSelectCondminio(data){
