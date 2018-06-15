@@ -40,12 +40,6 @@
 			//Pegando as variaveis que estao vindo via POST e salvando em variaveis PHP
 			$email = $_POST['InputEmail'];
 			$senha = $_POST['InputPassword'];
-			
-			// //Montando o Query que sera executada no banco de dados
-			// $sSQL = "SELECT * FROM  USUARIO WHERE email = '".$email."' AND senha = '".$senha."'"; 
-			// //$query = mysqli_query($con,$sSQL);
-
-			// $query = $con->query($sSQL);
 
 			$pdo = conectar();
 			$sSQL = "SELECT * FROM  USUARIO WHERE email = '".$email."' AND senha = '".$senha."'";
@@ -60,9 +54,7 @@
 			{
 				echo "erro";
 			}
-
-
-
+			
 			break;
 
 			default:
