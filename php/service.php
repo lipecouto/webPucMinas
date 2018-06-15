@@ -80,16 +80,16 @@
 		                           telefone, datanasc, id_condominio, id_apartamento)
 		                 VALUES(?,?,?,?,?,?,?,?,?,?)";
 		        $stm = $pdo->prepare($insertsql);
-		        $stm->bindValue(1, $nome);
-	        	$stm->bindValue(2, $cpf);
-	            $stm->bindValue(3, $login);
-	            $stm->bindValue(4, $senhacode);
-	            $stm->bindValue(5, $email);
-	            $stm->bindValue(6, $tipoUsuario);
-	            $stm->bindValue(7, $telefone);
-	            $stm->bindValue(8, $dtnasc);
-	            $stm->bindValue(9, $idcondominio);
-	            $stm->bindValue(10, $idapto);
+		        $stm->bindParam(1, $nome);
+	        	$stm->bindParam(2, $cpf);
+	            $stm->bindParam(3, $login);
+	            $stm->bindParam(4, $senhacode);
+	            $stm->bindParam(5, $email);
+	            $stm->bindParam(6, $tipoUsuario);
+	            $stm->bindParam(7, $telefone);
+	            $stm->bindParam(8, $dtnasc);
+	            $stm->bindParam(9, $idcondominio);
+	            $stm->bindParam(10, $idapto);
 	          	$stm->execute();
 	          	echo 'Sucesso';
 	        }
