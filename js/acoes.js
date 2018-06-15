@@ -152,16 +152,12 @@ $(document).ready(function(){
 
 //Enviar dados por requisição assincrona
     function listaUsers(data){
-        $.each(data.response, function(i,d){
-            var row = '<tr>';
-             $.each(d, function(i, item){
-                row +='<td>'+item+'</td>';
+        $.each(d, function(i, item){
+           $('<tb>').text(item[i]).appendTo('<tr>').appendTo('tbody');
+        });
+           
 
-             });
-             row = '</tr>';
-            $('#table tbody').append(row);
-
-        })
+      
         
     }
 
