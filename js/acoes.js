@@ -152,21 +152,42 @@ $(document).ready(function(){
 
 //Enviar dados por requisição assincrona
     function listaUsers(data){
-        var dataset = [];
-        $.each(data, function(i, item){  
-            dataset.push([item.login, 
-            item.nome, 
-            item.email
-            ]);       
-         });
-        $('#tablex').DataTable({
-            data : dataset,
-             columns: [
-                { title: 'Login' },
-                { title: 'Name' },
-                { title: 'email' }
-             ]
-        });        
+          $.each(data, function(i, item){
+            AddTableRow(this);
+
+            AddTableRow = function() {
+          
+            var newRow = $("<tr>");
+            var cols = "";
+          
+            cols += '<td>'+item.login+'</td>';
+            cols += '<td>'+item.nome+'</td>';
+            cols += '<td>'+item.email+'</td>';
+            cols += '<td>'+item.cpf+'</td>';
+          
+            cols += '<td class="actions">';
+            cols += '<button class="btn btn-large btn-danger" onclick="RemoveTableRow(this)" type="button">Remover</button>';
+            cols += '</td>';
+          
+            newRow.append(cols);
+          
+            $("#user-table").append(newRow);
+        
+          return false;
+      };
+          });
+
+        RemoveTableRow = function(handler) {
+        var tr = $(handler).closest('tr');
+
+        tr.fadeOut(400, function(){ 
+          tr.remove(); 
+        }); 
+
+        return false;
+      };
+      
+      
     }
 
     function preencheSelectCondminio(data){
