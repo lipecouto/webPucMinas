@@ -267,7 +267,7 @@ $(document).ready(function(){
     function cadastrarpost(titlepost,textpost ,idcondpost, idapusupost){
         $.ajax({
             method: "POST",
-            url: "/php/service.php?acao=inserir",
+            url: "/php/service.php?acao=inserirpost",
             data: {title : titlepost, text : textpost, idcond : idcondpost, idusu : idapusupost} 
         })
         .done(function(msg){

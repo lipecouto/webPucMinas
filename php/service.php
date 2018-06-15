@@ -25,6 +25,18 @@
 				
 				insertUser($n, $c, $l, $s, $e, $tu, $tel, $dt, $cond, $ap);
 				break;
+
+			case 'inserirpost':
+
+				//busca todas as variáveis;
+				$title = (isset($_POST['title']))? $_POST['title']: '';
+				$text = (isset($_POST['text']))? $_POST['text']: '';
+				$idcond = (isset($_POST['idcond']))? $_POST['idcond']: '';
+				$idusu = (isset($_POST['idusu']))? $_POST['idusu']: '';
+				
+				//chama a função inserir usuário
+				insertUserpost($title, $text, $idcond, $idusu);
+				break;
 			
 			case 'consultaCondominio':
 				//$resultado = $pdo->select("SELECT * FROM CONDOMINIO WHERE RAZAOSOCIAL LIKE '$parametro%' ORDER BY RAZAOSOCIAL ASC");
@@ -129,6 +141,34 @@
 	            $stm->bindParam(8, $dtnasc);
 	            $stm->bindParam(9, $idcond_);
 	            $stm->bindParam(10, $idapto, PDO::PARAM_INT);
+	          	$ok = ($stm->execute());
+	          	if(!$ok){
+	          		print_r($stm->errorInfo());
+	          		echo ($valor_id);
+	          	}else
+	          	echo 'ok';
+	        }
+	        catch(Exception $e){
+	          	echo 'Error'.$e->getMessage();
+	        	return null;
+	    	}
+	    endif;
+		$pdo = null;
+	}
+
+		function insertUserpost($title, $text, $idcond, $idusu){ 
+	    
+	    if (empty($title) || empty($text) || empty($idcond) || empty($idusu)):
+	          return "falha, campos pendentes";
+	      else:
+	        try{  
+		        $pdo = conectar();
+		        $insertsql = "INSERT INTO POSTAGEM (id_usuario, id_condominio, titulo, textopost) VALUES (?,?,?,?)";
+		        $stm = $pdo->prepare($insertsql);
+		        $stm->bindParam(1, $idusu);
+	        	$stm->bindParam(2, $idcond);
+	            $stm->bindParam(3, $title);
+	            $stm->bindParam(4, $text);
 	          	$ok = ($stm->execute());
 	          	if(!$ok){
 	          		print_r($stm->errorInfo());
