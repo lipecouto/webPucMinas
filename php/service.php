@@ -17,12 +17,12 @@
 				$s = (isset($_POST['senha']))? $_POST['senha']: '';
 				$e = (isset($_POST['email']))? $_POST['email']: '';
 				$tel  = (isset($_POST['telefone']))? $_POST['telefone']: '';
-				$tu   = (isset($_POST['tipoUsuario']))? $_POST['tipoUsuario']: '';
+				$tu   = (int) (isset($_POST['tipoUsuario']))? $_POST['tipoUsuario']: '';
 				$dt   = (isset($_POST['dtnasc']))? $_POST['dtnasc']: '';
 				$cond = (isset($_POST['idcond']))? $_POST['idcond']: '';
 				$ap   = (isset($_POST['idapto']))? $_POST['idapto']: '';
 				//chama a função inserir usuário
-	
+				
 				insertUser($n, $c, $l, $s, $e, $tel, $tu, $dt, $cond, $ap);
 				break;
 			
@@ -82,10 +82,10 @@
 	            $stm->bindParam(3, $login);
 	            $stm->bindParam(4, $senhacode);
 	            $stm->bindParam(5, $email);
-	            $stm->bindParam(6, $tipoUsuario, PDO::PARAM_INT);
+	            $stm->bindParam(6, $tipoUsuario);
 	            $stm->bindParam(7, $telefone);
 	            $stm->bindParam(8, $dtnasc);
-	            $stm->bindParam(9, $idcondominio, PDO::PARAM_INT);
+	            $stm->bindParam(9, $idcondominio);
 	            $stm->bindParam(10, $idapto, PDO::PARAM_INT);
 	          	$ok = ($stm->execute());
 	          	if(!$ok){

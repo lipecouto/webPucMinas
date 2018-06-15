@@ -183,7 +183,6 @@ $(document).ready(function(){
         }   
 
     function cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcondusu, idapusu){
-        
         $.ajax({
             method: "POST",
             url: "/php/service.php?acao=inserir",
