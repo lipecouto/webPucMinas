@@ -52,7 +52,7 @@
 			$stm = $pdo->prepare($sSQL);
 			$stm->execute();
 			//Checando se executou com sucesso
-			if ($query->fetchColumn() > 0)
+			if ($stm->fetchColumn() > 0)
 			{
 				echo "ok";
 			}
