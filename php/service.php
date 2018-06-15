@@ -66,6 +66,7 @@
 	}
 
 	function insertUser($nome, $cpf, $login, $senha, $email,$tipoUsuario, $telefone, $dtnasc, $idcondminio, $idapto){ 
+    	echo("teste de issert");
     	
     	$senhacode = base64_encode($senha);
 	    
