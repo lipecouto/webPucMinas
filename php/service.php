@@ -79,7 +79,7 @@
 	function deleteUser($idDelete_){
 		try{
 			$pdo = conectar();
-			$deletesql = "DELETE * FROM USUARIO WHERE id_usuario = ? CASCADE"
+			$deletesql = "DELETE * FROM USUARIO WHERE id_usuario = ? CASCADE";
 			$stm = $pdo->prepare($deletesql);
 			$stm->bindParam(1, $idDelete_);
 			$ok = ($stm->execute());
