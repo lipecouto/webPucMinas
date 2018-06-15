@@ -109,8 +109,9 @@
 
 	function listaUsuarios($condo_id){
 			$pdo = Conectar();
-	        $querysql = "SELECT * FROM USUARIO USU, CONDOMINIO COND WHERE USU.id_condominio = COND.id_condominio AND USU.id_condominio=".$condo_id;
+	        $querysql = "SELECT * FROM USUARIO USU, CONDOMINIO COND WHERE USU.id_condominio = COND.id_condominio AND USU.id_condominio=?";
 	        $exe = $pdo->prepare($querysql);
+	        $exe->bindValue(1, $condo_id);
 	        $exe->execute();
 	        $linha = $exe->fetchAll(PDO::FETCH_ASSOC);
 	        $json = json_encode($linha);
