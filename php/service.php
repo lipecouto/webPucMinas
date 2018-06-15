@@ -31,7 +31,7 @@
 				break;
 
 			case 'consultaAp':
-				$cond = (isset($_POST['idcondominio']))? $_POST['idcondominio']: '';
+				$cond = (isset($_GET['idcondominio'])) ? $_GET['idcondominio']: '';
 			    getApto($cond);   
 				break;
 
@@ -117,7 +117,7 @@
 	function getApto($condominio){
 		sleep(2);
 		$pdo = Conectar();
-    	$querysql = "SELECT id_apartamento, id_bloco FROM condominiodetalhe WHERE id_condominio =".$condominio ;
+    	$querysql = "SELECT id_apartamento, id_bloco FROM CONDOMINIODETALHE WHERE id_condominio =".$condominio ;
     	$exe = $pdo->prepare($querysql);
     	$exe->bindValue(1, $nomecond);
     	$exe->execute();
