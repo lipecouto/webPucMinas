@@ -19,7 +19,7 @@
 				$tel  = (isset($_POST['telefone']))? $_POST['telefone']: '';
 				$tu   = (isset($_POST['tipoUsuario']))? $_POST['tipoUsuario']: '';
 				$dt   = (isset($_POST['dtnasc']))? $_POST['dtnasc']: '';
-				$cond = (isset($_GET['idcondominio']))? $_GET['idcondominio']: '';
+				$cond = (isset($_POST['idcond']))? $_POST['idcond']: '0';
 				$ap   = (isset($_POST['idapto']))? $_POST['idapto']: '';
 				//chama a função inserir usuário
 				echo ($cond);

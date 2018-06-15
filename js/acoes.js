@@ -188,7 +188,7 @@ $(document).ready(function(){
             method: "POST",
             url: "/php/service.php?acao=inserir",
             data: {nome : nomeusu, cpf : cpfusu, login : loginusu, senha : senhausu, email : emailusu, telefone : telefoneusu, tipoUsuario : tipusu,
-             dtnasc :  dtnascusu, idcondominio : idcondusu, idapto : idapusu} 
+             dtnasc :  dtnascusu, idcond : idcondusu, idapto : idapusu} 
         })
         .done(function(msg){
             if(msg == "ok"){
