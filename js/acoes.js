@@ -161,7 +161,7 @@ $(document).ready(function(){
                 row +='</tr>';
          }); 
         alert(row);
-        $('<tbody>').html(row);        
+        $('#dados').html(row);        
     }
 
     function preencheSelectCondminio(data){
