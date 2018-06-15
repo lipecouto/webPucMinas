@@ -23,7 +23,7 @@
 				$ap   = (isset($_POST['idapto']))? $_POST['idapto']: '';
 				//chama a função inserir usuário
 				
-				insertUser($n, $c, $l, $s, $e, $tel, $tu, $dt, $cond, $ap);
+				insertUser($n, $c, $l, $s, $e, $tu, $tel, $dt, $cond, $ap);
 				break;
 			
 			case 'consultaCondominio':
@@ -40,6 +40,9 @@
 				 $cond_2 = (isset($_GET['id_cond2'])) ? $_GET['id_cond2']: '';
 				 echo(listaUsuarios($cond_2));
 				break;	
+			case 'listaSindicos':
+				echo (getSindicosVotacao());
+				break;
 
 			case 'login':
 			//Pegando as variaveis que estao vindo via POST e salvando em variaveis PHP
@@ -76,6 +79,17 @@
 		echo "Sem ação definida!";
 	}
 
+	function getSindicosVotacao(){
+			$pdo = Conectar();
+	        $querysql = "SELECT * FROM USUARIO USU, CONDOMINIO COND WHERE USU.id_condominio = COND.id_condominio AND USU.tipoUsuario = 1";
+	        $exe = $pdo->prepare($querysql);
+	        $exe->execute();
+	        $linha = $exe->fetchAll(PDO::FETCH_ASSOC);
+	        $json = json_encode($linha);
+	        echo ($json);
+	        $pdo = null;
+	}
+
 	function deleteUser($idDelete_){
 		try{
 			$pdo = conectar();
@@ -94,7 +108,7 @@
 	    	}
 	}
 
-	function insertUser($nome, $cpf, $login, $senha, $email,$tipoUsuario, $telefone, $dtnasc, $idcond_, $idapto){ 
+	function insertUser($nome, $cpf, $login, $senha, $email, $tipoUsuario, $telefone, $dtnasc, $idcond_, $idapto){ 
 
     	$senhacode = base64_encode($senha);
 	    
@@ -111,7 +125,7 @@
 	            $stm->bindParam(4, $senhacode);
 	            $stm->bindParam(5, $email);
 	            $stm->bindParam(6, $tipoUsuario);
-	            $stm->bindParam(7, $telefone);
+	            $stm->bindParam(7, $telefone, PDO::PARAM_INT);
 	            $stm->bindParam(8, $dtnasc);
 	            $stm->bindParam(9, $idcond_);
 	            $stm->bindParam(10, $idapto, PDO::PARAM_INT);

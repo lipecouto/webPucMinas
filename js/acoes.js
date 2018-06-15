@@ -16,6 +16,10 @@ $(document).ready(function(){
         });
      });
     
+     $("#btnescolher").on("click", function(event){
+        var idusuVotado = $("#votaSindico").val();
+     });
+
     $("#btncadastrar").on("click", function(event){
         var nomeusu = $("#fullname").val();
         var cpfusu = $("#personid").val();
@@ -115,7 +119,11 @@ $(document).ready(function(){
 
         $("#votar").click(function(){
              $("#lowbody").load("Votacao-min.html", function(event){
-               closeNav();
+                closeNav();
+                $.getJSON('/php/service.php?acao=listaSindicos', function(data){
+                    preencherSelectVotacao(data);
+                });
+               
                //listaUsers();
              });    
          });
@@ -198,6 +206,11 @@ $(document).ready(function(){
         });
     }
 
+    function preencherSelectVotacao(data){
+        $each(data, function(i, item){
+          $('<option>').val(item.id_usuario).text(item.nome+' / '+ item.razaosocial).appendTo('#votaSindico');   
+        });
+    }
     function preencheSelectCondminio(data){
         $.each(data, function(i, item){
             $('<option>').val(item.id_condominio).text(item.razaosocial).appendTo('#getCondominio'); 
