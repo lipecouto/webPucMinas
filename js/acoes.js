@@ -154,7 +154,7 @@ $(document).ready(function(){
     function listaUsers(data){
           $.each(data, function(i, item){
 
-            var newRow = $("<tr value='".item.id_usuario."'>");
+            var newRow = $("<tr value="+item.id_usuario+">");
             var cols = "";
             cols += '<td>'+item.id_usuario+'</td>';
             cols += '<td>'+item.login+'</td>';
