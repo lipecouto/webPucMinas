@@ -153,9 +153,9 @@ $(document).ready(function(){
 //Enviar dados por requisição assincrona
     function listaUsers(data){
         $.each(data, function(i, item){
-           $('<tb>').text(item.login).appendTo('#dados');
-           $('<tb>').text(item.nome).appendTo('#dados');
-           $('<tb>').text(item.email).appendTo('#dados');
+           $('<tb>').text(item.login).appendTo('tbody tr');
+           $('<tb>').text(item.nome).appendTo('tbody tr');
+           $('<tb>').text(item.email).appendTo('tbody tr');
         });         
     }
 
