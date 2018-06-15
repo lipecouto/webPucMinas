@@ -28,7 +28,9 @@ $(document).ready(function(){
         var idcondusu = $("#getCondominio").val();
         var idapusu = $("#getApartamento").val();
 
-        cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, idcondusu, idapusu);
+        alert("id capturada com idcondusu:"+ idcondusu);
+        alert("id que ja estava no id_cond:" + id_cond);
+        cadastrar(nomeusu, cpfusu, loginusu, senhausu, emailusu, telefoneusu, tipusu, dtnascusu, id_cond, idapusu);
     });
 
 

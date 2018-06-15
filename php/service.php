@@ -23,7 +23,7 @@
 				$ap   = (isset($_POST['idapto']))? $_POST['idapto']: '';
 				//chama a função inserir usuário
 				echo ($cond);
-				echo ("<br>".$n);
+				echo ("-----".$n);
 				//insertUser($n, $c, $l, $s, $e, $tel, $tu, $dt, $cond, $ap);
 				break;
 			
