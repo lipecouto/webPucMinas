@@ -40,11 +40,11 @@ $(document).ready(function()
         {
             if(msg == "ok")
             {
-                alert("Inserido com sucesso!");
+                window.location.replace("/home.html");
             }
             else
             {
-                alert("Erro ao processar solicitação!");    
+                alert("Email e Senha não conferem.");    
             }
             
         });

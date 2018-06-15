@@ -58,7 +58,7 @@
 			}
 			else
 			{
-				echo "error";
+				echo "erro";
 			}
 
 
