@@ -163,7 +163,7 @@ $(document).ready(function(){
             cols += '<td>'+item.cpf+'</td>';
           
             cols += '<td class="actions">';
-            cols += '<button class="btn btn-large btn-danger" onclick="RemoveTableRow(this)" type="button">Remover</button>';
+            cols += '<button class="btn btn-large btn-danger" onclick="RemoveTableRow(this,'+item.id_usuario+')" type="button">Remover</button>';
             cols += '</td>';
           
             newRow.append(cols);
@@ -171,10 +171,9 @@ $(document).ready(function(){
             $("#user-table").append(newRow);
           });
 
-        RemoveTableRow = function(handler) {
-        var tr = $(handler).closest('tr');
-        var idDelete = $(handler).val('tr');
-        alert(idDelete);
+        RemoveTableRow = function(handler, valueRow) {
+        var tr = $(handler).closest('tr');  
+        alert(valueRow);
         tr.fadeOut(400, function(){ 
 
           tr.remove(); 
