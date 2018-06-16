@@ -168,10 +168,10 @@
 		        $insertsql = "INSERT INTO POSTAGEM (id_usuario, id_condominio, titulo, textopost) VALUES (1,1,?,?)";
 		        echo "2";
 		        $stm = $pdo->prepare($insertsql);
-		        $stm->bindParam(1, $idusu);
-	        	$stm->bindParam(2, $idcond);
-	            //$stm->bindParam(3, $title);
-	            //$stm->bindParam(4, $text);
+		        //$stm->bindParam(1, $idusu);
+	        	//$stm->bindParam(2, $idcond);
+	            $stm->bindParam(3, $titles);
+	            $stm->bindParam(4, $texts);
 	          	$ok = ($stm->execute());
 	          	if(!$ok)
 	          	{
