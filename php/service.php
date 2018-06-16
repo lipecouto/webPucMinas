@@ -29,13 +29,13 @@
 			case 'inserirpost':
 
 				//busca todas as variáveis;
-				$title = (isset($_POST['title']))? $_POST['title']: '';
-				$text = (isset($_POST['text']))? $_POST['text']: '';
-				$idcond = (isset($_POST['idcond']))? $_POST['idcond']: '';
-				$idusu = (isset($_POST['idusu']))? $_POST['idusu']: '';
+				$titles = (isset($_POST['title']))? $_POST['title']: '';
+				$texts = (isset($_POST['text']))? $_POST['text']: '';
+				$idconds = (isset($_POST['idcond']))? $_POST['idcond']: '';
+				$idusus = (isset($_POST['idusu']))? $_POST['idusu']: '';
 				
 				//chama a função inserir usuário
-				insertUserpost($title, $text, $idcond, $idusu);
+				insertUserpost($titles, $texts, $idconds, $idusus);
 				break;
 			
 			case 'consultaCondominio':
@@ -156,7 +156,8 @@
 		$pdo = null;
 	}
 
-		function insertUserpost($title, $text, $idcond, $idusu){ 
+	function insertUserpost($titles, $texts, $idconds, $idusus)
+	{ 
 	    
 	    if (empty($title) || empty($text)):
 	          return "falha, campos pendentes";
@@ -170,10 +171,12 @@
 	            $stm->bindParam(3, $title);
 	            $stm->bindParam(4, $text);
 	          	$ok = ($stm->execute());
-	          	if(!$ok){
+	          	if(!$ok)
+	          	{
 	          		print_r($stm->errorInfo());
 	          		echo ($valor_id);
-	          	}else
+	          	}
+	          	else
 	          	echo 'ok';
 	        }
 	        catch(Exception $e){
