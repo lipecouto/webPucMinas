@@ -165,7 +165,7 @@
 	      else:
 	        try{  
 		        $pdo = conectar();
-		        $insertsql = "INSERT INTO POSTAGEM (id_usuario, id_condominio, titulo, textopost) VALUES (?,?,1,1)";
+		        $insertsql = "INSERT INTO POSTAGEM (id_usuario, id_condominio, titulo, textopost) VALUES (1,1,?,?)";
 		        echo "2";
 		        $stm = $pdo->prepare($insertsql);
 		        $stm->bindParam(1, $idusu);
