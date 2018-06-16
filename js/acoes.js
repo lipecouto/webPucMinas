@@ -14,6 +14,9 @@ $(document).ready(function(){
         var id_cond = $("#getCondominio").val();
         $.getJSON('/php/service.php?acao=consultaAp&idcondominio='+id_cond, function (data){
             preencheSelectAp(data);
+
+        $.getJSON('/php/service.php?acao=listUser&id_cond2='+id_cond, function (data){
+            preencheSelectAp(data);
         });
      });
 
@@ -81,6 +84,9 @@ $(document).ready(function(){
         $("#postMsg").click(function(){
              $("#lowbody").load("CadastrarPostagens-min.html");
              closeNav();
+            $.getJSON('/php/service.php?acao=consultaCondominio', function(data){
+                    preencheSelectCondminio(data);
+            });
         });
 
          $("#posts").click(function(){
@@ -227,6 +233,12 @@ $(document).ready(function(){
         $.each(data, function(i, item){
             $('<option>').val(item.id_condominio).text(item.razaosocial).appendTo('#getCondominio'); 
         });   
+    }
+
+    function preencheSelectuser(data){
+         $.each(data, function(i, item){
+                $('<option>').val(item.id_usuario).text("Bloco"+item.nome).appendTo('#getUsuariopost'); 
+            });
     }
 
     function preencheSelectAp(data){
