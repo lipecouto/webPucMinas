@@ -158,13 +158,15 @@
 
 	function insertUserpost($titles, $texts, $idconds, $idusus)
 	{ 
-	    
+	    echo "1";
+
 	    if (empty($title) || empty($text)):
 	          return "falha, campos pendentes";
 	      else:
 	        try{  
 		        $pdo = conectar();
 		        $insertsql = "INSERT INTO POSTAGEM (id_usuario, id_condominio, titulo, textopost) VALUES (?,?,?,?)";
+		        echo "2";
 		        $stm = $pdo->prepare($insertsql);
 		        $stm->bindParam(1, $idusu);
 	        	$stm->bindParam(2, $idcond);
@@ -180,6 +182,7 @@
 	          	echo 'ok';
 	        }
 	        catch(Exception $e){
+	        	echo "3";
 	          	echo 'Error'.$e->getMessage();
 	        	return null;
 	    	}
