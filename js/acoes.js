@@ -5,6 +5,11 @@ $(document).ready(function(){
      $("#listUsers").click(function(){       
         $("#lowbody").load("Usuarios-min.html", function(){});
         });
+
+    $("#listaPost").click(function(){       
+        $("#lowbody").load("Postagens-min.html", function(){});
+        });
+
      //esconde botao alerta
      $("#alertOK").css('display', 'none');
      
@@ -219,6 +224,7 @@ $(document).ready(function(){
           $('<option>').val(item.id_usuario).text(item.nome+' / '+ item.razaosocial).appendTo('#votaSindico');   
         });
     }
+
     function preencheSelectCondminio(data){
         $.each(data, function(i, item){
             $('<option>').val(item.id_condominio).text(item.razaosocial).appendTo('#getCondominio'); 
@@ -276,6 +282,25 @@ $(document).ready(function(){
                 alert("Erro ao processar sua solicitação");
             }
         });
+    }
+
+    //Enviar dados por requisição assincrona
+    function listaPost(data)
+    {
+          $.each(data, function(i, item)
+          {
+
+            var newRow = $("<tr value="+item.id_postagem+">");
+            var cols = "";
+            cols += '<td>'+item.id_usuario+'</td>';
+            cols += '<td>'+item.id_condominio+'</td>';
+            cols += '<td>'+item.title+'</td>';
+            cols += '<td>'+item.textpost+'</td>';
+          
+            newRow.append(cols);
+          
+            $("#post_table").append(newRow);
+          });     
     }
 
 });
