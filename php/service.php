@@ -81,6 +81,23 @@
 				deleteUser($idDelete);
 				break;
 
+			case "listarpost":
+							
+				$pdo = conectar();
+				$sSQL = "SELECT * FROM POSTAGEM";
+				$stm = $pdo->prepare($sSQL);
+				$stm->execute();
+
+				$return = array();
+					
+				while($dados = mysqli_fetch_array($stm)){
+					array_push($return, array('id_postagem'=>$dados['id_postagem'],'id_usuario'=>$dados['id_usuario'],'id_condominio'=>$dados['id_condominio'],'titulo'=>$dados['titulo'],'textopost'=>$dados['textopost']));
+				}
+				http_response_code(200);
+				echo json_encode(array('listagem'=>$return));
+			
+			break;
+
 			default:
 				 echo "Serviço não existe";
 			break;

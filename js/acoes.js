@@ -171,6 +171,8 @@ $(document).ready(function(){
     function listaUsers(data){
           $.each(data, function(i, item){
 
+            $('#user-table').empty();
+
             var newRow = $("<tr value="+item.id_usuario+">");
             var cols = "";
             cols += '<td>'+item.id_usuario+'</td>';
