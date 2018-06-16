@@ -186,6 +186,7 @@
 	          	echo 'Error'.$e->getMessage();
 	        	return null;
 	    	}
+	    	echo "4";
 	    endif;
 		$pdo = null;
 	}
