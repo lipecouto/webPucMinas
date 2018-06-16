@@ -15,7 +15,7 @@ $(document).ready(function(){
             preencheSelectAp(data);
         });
      });
-    
+
      $("#btnescolher").on("click", function(event){
         var idusuVotado = $("#votaSindico").val();
      });
@@ -66,7 +66,6 @@ $(document).ready(function(){
             });
 
              //carrega  os dados dos condominios depois do load
- 
             $.getJSON('/php/service.php?acao=consultaCondominio', function(data){
                     preencheSelectCondminio(data);
             });
