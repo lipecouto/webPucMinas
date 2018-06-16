@@ -160,7 +160,7 @@
 	{ 
 	    echo "1";
 
-	    if (empty($title) || empty($text)):
+	    if (empty($titles) || empty($texts)):
 	          return "falha, campos pendentes";
 	      else:
 	        try{  
