@@ -17,7 +17,7 @@ $(document).ready(function(){
          });
             
         $.getJSON('/php/service.php?acao=listUser&id_cond2='+id_cond, function (data){
-            preencheSelectAp(data);
+            preencheSelectuser(data);
         });
      });
 
@@ -238,7 +238,7 @@ $(document).ready(function(){
 
     function preencheSelectuser(data){
          $.each(data, function(i, item){
-                $('<option>').val(item.id_usuario).text("Bloco"+item.nome).appendTo('#getUsuariopost'); 
+                $('<option>').val(item.id_usuario).text(item.nome).appendTo('#getUsuariopost'); 
             });
     }
 
