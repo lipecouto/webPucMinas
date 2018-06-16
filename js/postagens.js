@@ -29,7 +29,7 @@ function atualizarLista(){
             $.each(data.listagem, function (index, value) {
 
                 //Colocar no HTML o dados usando o tempalte ITEMLISTA
-                $('#post_table').append(itemLista(value.id_u,value.nome,value.raca));
+                $('#post_table').append(itemLista(value.id_postagem,value.id_usuario,value.id_condominio,value.titulo,value.textopost));
 
             });
         }
@@ -37,7 +37,7 @@ function atualizarLista(){
 }
 
 //Template de Listagem
-function itemLista(id,nome,raca){
+function itemLista(id_postagem,id_usuario,id_condominio,titulo,textopost){
     //Formata o HTML de cada registro da tabela 
-    return "<tr><td>"+id+"</td><td>"+nome+"</td><td>"+raca+"</td></tr>";
+    return "<tr><td>"+id_postagem+"</td><td>"+id_usuario+"</td><td>"+id_condominio+"</td><td>"+titulo+"</td><td>"+textopost+"</td></tr>";
 }
