@@ -14,7 +14,8 @@ $(document).ready(function(){
         var id_cond = $("#getCondominio").val();
         $.getJSON('/php/service.php?acao=consultaAp&idcondominio='+id_cond, function (data){
             preencheSelectAp(data);
-
+         });
+            
         $.getJSON('/php/service.php?acao=listUser&id_cond2='+id_cond, function (data){
             preencheSelectAp(data);
         });
@@ -293,5 +294,4 @@ $(document).ready(function(){
             }
         });
     }
-
 });
