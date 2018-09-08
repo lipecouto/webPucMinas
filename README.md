@@ -1,6 +1,8 @@
-# Project Title
+# DIDEE - Inteligência em sua Gestão de condomínios
 
-One Paragraph of project description goes here
+O DIDDE foi feito para o projeto interdisciplinar do 6º periodo do Curso de Sistemas de Informação na PUC São Gabriel.
+
+Ele foi criado com o intuito de realizar uma gestão inteligente de condominio e o nome Homenagea nosso professor Claudinei, o famoso "didinei"! 
 
 ## Getting Started
 
